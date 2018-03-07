@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
         prefEditor.apply();
 
-        Toast t = Toast.makeText(this, "Scripture Saved Successfully", Toast.LENGTH_SHORT);
+        Toast t = Toast.makeText(this, "Preferences Saved Successfully", Toast.LENGTH_SHORT);
         t.show();
     }
 
