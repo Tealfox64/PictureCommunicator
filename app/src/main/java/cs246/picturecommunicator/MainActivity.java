@@ -1,6 +1,7 @@
 package cs246.picturecommunicator;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
@@ -19,31 +20,38 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
     }
 
-    public void savePrefs(View view) {
+    public void sampleButton(View view) {
 
-        Context context = getBaseContext();
-        SharedPreferences.Editor prefEditor = PreferenceManager.getDefaultSharedPreferences(context).edit();
+        Intent intent = new Intent(this, CategoryMenu.class);
+
+
+//        Context context = getBaseContext();
+//        SharedPreferences.Editor prefEditor = PreferenceManager.getDefaultSharedPreferences(context).edit();
+
 
         // Fill editText with address to the EditText
-        EditText testText1 = (EditText) findViewById(R.id.testText1);
-        EditText testText2 = (EditText) findViewById(R.id.testText2);
-        EditText testText3 = (EditText) findViewById(R.id.testText3);
+//        EditText testText1 = (EditText) findViewById(R.id.testText1);
+//        EditText testText2 = (EditText) findViewById(R.id.testText2);
+//        EditText testText3 = (EditText) findViewById(R.id.testText3);
 
         // Retrieve the message from the EditText
-        String text1 = testText1.getText().toString();
-        String text2 = testText2.getText().toString();
-        String text3 = testText3.getText().toString();
+//        String text1 = testText1.getText().toString();
+//        String text2 = testText2.getText().toString();
+//        String text3 = testText3.getText().toString();
 
-        prefEditor.putString(PREF_SLOT1, text1);
-        prefEditor.putString(PREF_SLOT2, text2);
-        prefEditor.putString(PREF_SLOT3, text3);
+//        prefEditor.putString(PREF_SLOT1, text1);
+//        prefEditor.putString(PREF_SLOT2, text2);
+//        prefEditor.putString(PREF_SLOT3, text3);
 
-        prefEditor.apply();
+//        prefEditor.apply();
 
-        Toast t = Toast.makeText(this, "Preferences Saved Successfully", Toast.LENGTH_SHORT);
-        t.show();
+//        Toast t = Toast.makeText(this, "Preferences Saved Successfully", Toast.LENGTH_SHORT);
+//        t.show();
+        startActivity(intent);
     }
 
     @Override

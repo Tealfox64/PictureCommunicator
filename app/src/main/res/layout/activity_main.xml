@@ -94,6 +94,7 @@
             android:layout_height="89dp"
             android:layout_gravity="left"
             android:layout_marginTop="25dp"
+            android:onClick="sampleButton"
             app:srcCompat="@android:drawable/ic_input_add" />
 
     </LinearLayout>
