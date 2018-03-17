@@ -1,42 +1,53 @@
 package cs246.picturecommunicator;
 
-/**
- * Created by landc on 3/14/2018.
- */
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
 
-public class ListSubMenu {
-//Landon's Notes
-    //    public class pictureAdapater extends ArrayAdapter<>{
-//
-//
-//        public pictureAdapater(@NonNull Context context, int resource, @NonNull List objects) {
-//            super(context, resource, objects);
-//            pictureList = objects;
-//            this.resource = resource;
-//            inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
-//
-//
-//        }
-//
-//        public View getView(int position, View convertView, ViewGroup parent) {
-//            if(convertView == null){
-//                convertView = inflater.inflate(R.layout.row, null);
-//
-//            }
-//            ImageView ivMovieIcon;
-//            TextView tvMovie;
-//
-//            ivMovieIcon = (ImageView)convertView.findViewById(R.id.ivIcon);
-//            tvMovie = (TextView)convertView.findViewById(R.id.tvMovie);
-//
-//
-//            tvMovie.setText(movieModelList.get(position).getMovie();
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
-//              for(MovieModel.Cast cast : movieModelList.get(position).getCastList()){
-//        stringBuffer.append(cast.getName() + " ");
-//    }
-//            return convertView
-//
-//        }
-//    }
+public class ListSubMenu extends AppCompatActivity {
+
+    // Array of strings for ListView Title
+    String[] listviewTitle = new String[]{
+            "ListView Title 1", "ListView Title 2", "ListView Title 3", "ListView Title 4",
+            "ListView Title 5", "ListView Title 6", "ListView Title 7", "ListView Title 8",
+    };
+
+
+    int[] listviewImage = new int[]{
+            R.drawable.example_image, R.drawable.example_image, R.drawable.example_image, R.drawable.example_image,
+            R.drawable.example_image, R.drawable.example_image, R.drawable.example_image, R.drawable.example_image,
+    };
+
+    String[] listviewShortDescription = new String[]{
+            "Android ListView Short Description", "Android ListView Short Description", "Android ListView Short Description", "Android ListView Short Description",
+            "Android ListView Short Description", "Android ListView Short Description", "Android ListView Short Description", "Android ListView Short Description",
+    };
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_list_sub_menu);
+
+        List<HashMap<String, String>> aList = new ArrayList<HashMap<String, String>>();
+
+        for (int i = 0; i < 8; i++) {
+            HashMap<String, String> hm = new HashMap<String, String>();
+            hm.put("listview_title", listviewTitle[i]);
+            hm.put("listview_discription", listviewShortDescription[i]);
+            hm.put("listview_image", Integer.toString(listviewImage[i]));
+            aList.add(hm);
+        }
+
+        String[] from = {"listview_image", "listview_title", "listview_discription"};
+        int[] to = {R.id.list_image, R.id.title};
+
+        SimpleAdapter simpleAdapter = new SimpleAdapter(getBaseContext(), aList, R.layout.mylist, from, to);
+        ListView androidListView = (ListView) findViewById(R.id.list);
+        androidListView.setAdapter(simpleAdapter);
+    }
 }

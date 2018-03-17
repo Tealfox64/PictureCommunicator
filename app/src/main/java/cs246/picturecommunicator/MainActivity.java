@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void sampleButton(View view) {
 
-        Intent intent = new Intent(this, CategoryMenu.class);
+        Intent intent = new Intent(this, ListSubMenu.class);
 
 
 //        Context context = getBaseContext();
