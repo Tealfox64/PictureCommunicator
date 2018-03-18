@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".CategoryMenu" />
+        <activity android:name=".PictureSelector" />
         <activity android:name=".ListSubMenu"></activity>
     </application>
 

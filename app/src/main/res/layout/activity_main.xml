@@ -32,10 +32,12 @@
                 app:srcCompat="@android:drawable/ic_input_add" />
 
             <ImageButton
+                android:id="@+id/removeButton3"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                app:srcCompat="@android:drawable/btn_star" />
+                android:backgroundTint="@android:color/holo_red_dark"
+                app:srcCompat="@android:drawable/ic_menu_delete" />
         </LinearLayout>
     </LinearLayout>
 
@@ -67,10 +69,12 @@
                 app:srcCompat="@android:drawable/ic_input_add" />
 
             <ImageButton
+                android:id="@+id/removeButton2"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                app:srcCompat="@android:drawable/btn_star" />
+                android:backgroundTint="@android:color/holo_red_dark"
+                app:srcCompat="@android:drawable/ic_menu_delete" />
         </LinearLayout>
     </LinearLayout>
 
@@ -97,7 +101,7 @@
             android:orientation="horizontal">
 
             <ImageButton
-                android:id="@+id/addButton1"
+                android:id="@+id/imageButton1"
                 android:layout_width="230dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -109,7 +113,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                app:srcCompat="@android:drawable/btn_star" />
+                android:backgroundTint="@android:color/holo_red_dark"
+                app:srcCompat="@android:drawable/ic_menu_delete" />
 
         </LinearLayout>
     </LinearLayout>

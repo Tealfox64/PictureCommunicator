@@ -12,53 +12,36 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String PREF_SLOT1 = "cs246.picturecommunicator.SLOT_1";
-    public static final String PREF_SLOT2 = "cs246.picturecommunicator.SLOT_2";
-    public static final String PREF_SLOT3 = "cs246.picturecommunicator.SLOT_3";
+    // string for the tag indicating the activity name for Log
+    private static final String TAG = "MainActivity";
+
+    // string for Extra key for intent, public so it can be accessed
+    public static final String EXTRA_SLOT_CHOICE = "cs246.picturecommunicator.SLOT_CHOICE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
     }
 
+    // Template Button Function
     public void sampleButton(View view) {
 
-        Intent intent = new Intent(this, ListSubMenu.class);
+        /*
+            Link to next activity via Intent
+            Context as first parameter (this) (is an Activity, subclass of Context)
+            Second Parameter: Class of the component to which the Intent should be delivered
+         */
+        Intent intent = new Intent(this, CategoryMenu.class);
 
-
-//        Context context = getBaseContext();
-//        SharedPreferences.Editor prefEditor = PreferenceManager.getDefaultSharedPreferences(context).edit();
-
-
-        // Fill editText with address to the EditText
-//        EditText testText1 = (EditText) findViewById(R.id.testText1);
-//        EditText testText2 = (EditText) findViewById(R.id.testText2);
-//        EditText testText3 = (EditText) findViewById(R.id.testText3);
-
-        // Retrieve the message from the EditText
-//        String text1 = testText1.getText().toString();
-//        String text2 = testText2.getText().toString();
-//        String text3 = testText3.getText().toString();
-
-//        prefEditor.putString(PREF_SLOT1, text1);
-//        prefEditor.putString(PREF_SLOT2, text2);
-//        prefEditor.putString(PREF_SLOT3, text3);
-
-//        prefEditor.apply();
+        String slotID = "Slot_0";
 
 //        Toast t = Toast.makeText(this, "Preferences Saved Successfully", Toast.LENGTH_SHORT);
 //        t.show();
+
+        intent.putExtra(EXTRA_SLOT_CHOICE, slotID);
         startActivity(intent);
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-
-
-    }
 }
 

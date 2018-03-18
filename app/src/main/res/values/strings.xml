@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Teresa\'s Talker</string>
-    <string name="activities">Activities</string>
+    <string name="activities_category">Activities Category</string>
+    <string name="food_category">Food Category</string>
+    <string name="pain_category">Pain Category</string>
+    <string name="family_category">Family Category</string>
 </resources>
