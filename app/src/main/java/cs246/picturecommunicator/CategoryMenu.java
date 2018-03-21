@@ -40,7 +40,50 @@ public class CategoryMenu extends AppCompatActivity {
 
         intent.putExtra(MainActivity.EXTRA_SLOT_CHOICE, slotID);
         String category = "Activities";
-        intent.putExtra(EXTRA_CATEGORY_CHOICE, slotID);
+        intent.putExtra(EXTRA_CATEGORY_CHOICE, category);
+        Log.d(TAG, category + " for " + slotID + "selected.");
+        startActivity(intent);
+
+    }
+
+    public void foodButton(View view) {
+        Intent intent = new Intent(this, PictureSelector.class);
+
+//        Toast t = Toast.makeText(this, "Preferences Saved Successfully", Toast.LENGTH_SHORT);
+//        t.show();
+
+        intent.putExtra(MainActivity.EXTRA_SLOT_CHOICE, slotID);
+        String category = "Food";
+        intent.putExtra(EXTRA_CATEGORY_CHOICE, category);
+        Log.d(TAG, category + " for " + slotID + "selected.");
+        startActivity(intent);
+
+    }
+
+    public void painButton(View view) {
+        Intent intent = new Intent(this, PictureSelector.class);
+
+//        Toast t = Toast.makeText(this, "Preferences Saved Successfully", Toast.LENGTH_SHORT);
+//        t.show();
+
+        intent.putExtra(MainActivity.EXTRA_SLOT_CHOICE, slotID);
+        String category = "Pain";
+        intent.putExtra(EXTRA_CATEGORY_CHOICE, category);
+        Log.d(TAG, category + " for " + slotID + "selected.");
+        startActivity(intent);
+
+    }
+
+    public void familyButton(View view) {
+        Intent intent = new Intent(this, PictureSelector.class);
+
+//        Toast t = Toast.makeText(this, "Preferences Saved Successfully", Toast.LENGTH_SHORT);
+//        t.show();
+
+        intent.putExtra(MainActivity.EXTRA_SLOT_CHOICE, slotID);
+        String category = "Family";
+        intent.putExtra(EXTRA_CATEGORY_CHOICE, category);
+        Log.d(TAG, category + " for " + slotID + "selected.");
         startActivity(intent);
 
     }
