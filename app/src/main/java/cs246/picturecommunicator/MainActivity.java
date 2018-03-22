@@ -3,12 +3,14 @@ package cs246.picturecommunicator;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.Image;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 /**
@@ -18,11 +20,13 @@ import android.widget.Toast;
  */
 public class MainActivity extends AppCompatActivity {
 
+    // string for Extra key for intent, public so it can be accessed
+    public static final String EXTRA_SLOT_CHOICE = "cs246.picturecommunicator.SLOT_CHOICE";
+
     // 4 buttons represent four activities
-    private Button famButton;           // family
-    private Button painButton;          // pain
-    private Button foodButton;          // food
-    private Button activitiesButton;    // activities
+    private ImageButton request1;
+    private ImageButton request2;
+    private ImageButton request3;
 
     /**
      *
@@ -31,22 +35,22 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_picture_selector);
+        setContentView(R.layout.activity_main);
 
-        famButton = (Button) findViewById(R.id.familyButton);
-        famButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openPictureMenu();
-            }
-        });
+        //request1 = (ImageButton) findViewById(R.id.imageButton1);
+        //request1.setOnClickListener(new View.OnClickListener() {
+        //    @Override
+        //    public void onClick(View view) {
+        //        openPictureMenu();
+        //    }
+        //});
     }
 
     /**
      *
      */
-    public void openPictureMenu() {
-        Intent intent = new Intent (this, PictureSelector.class);
+    public void openPictureMenu(View view) {
+        Intent intent = new Intent (this, CategoryMenu.class);
         startActivity(intent);
     }
 

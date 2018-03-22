@@ -33,7 +33,7 @@ public class CategoryMenu extends AppCompatActivity {
     }
 
     public void activitiesButton(View view) {
-        Intent intent = new Intent(this, PictureSelector.class);
+        Intent intent = new Intent(this, ListSubMenu.class);
 
 //        Toast t = Toast.makeText(this, "Preferences Saved Successfully", Toast.LENGTH_SHORT);
 //        t.show();
@@ -47,7 +47,7 @@ public class CategoryMenu extends AppCompatActivity {
     }
 
     public void foodButton(View view) {
-        Intent intent = new Intent(this, PictureSelector.class);
+        Intent intent = new Intent(this, ListSubMenu.class);
 
 //        Toast t = Toast.makeText(this, "Preferences Saved Successfully", Toast.LENGTH_SHORT);
 //        t.show();
@@ -61,7 +61,7 @@ public class CategoryMenu extends AppCompatActivity {
     }
 
     public void painButton(View view) {
-        Intent intent = new Intent(this, PictureSelector.class);
+        Intent intent = new Intent(this, ListSubMenu.class);
 
 //        Toast t = Toast.makeText(this, "Preferences Saved Successfully", Toast.LENGTH_SHORT);
 //        t.show();
@@ -75,7 +75,7 @@ public class CategoryMenu extends AppCompatActivity {
     }
 
     public void familyButton(View view) {
-        Intent intent = new Intent(this, PictureSelector.class);
+        Intent intent = new Intent(this, ListSubMenu.class);
 
 //        Toast t = Toast.makeText(this, "Preferences Saved Successfully", Toast.LENGTH_SHORT);
 //        t.show();
