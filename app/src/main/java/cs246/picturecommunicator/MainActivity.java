@@ -36,7 +36,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // TODO: Anthony - We need to run the three tests to check whether or not a previous slot has been chosen
-        // If isSlot1Empty
+        if (isSlot1Empty()) {
+
+        }
+
+        if (isSlot2Empty()) {
+
+        }
+
+        if (isSlot3Empty()) {
+
+        }
     }
 
     /**
@@ -47,5 +57,19 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 //  TODO: Anthony - We need to create three functions: One for each slot
+
+
+
+    public boolean isSlot1Empty() {
+        return true;
+    }
+
+    public boolean isSlot2Empty() {
+        return true;
+    }
+
+    public boolean isSlot3Empty() {
+        return true;
+    }
 }
 
