@@ -11,7 +11,6 @@
 \res\drawable\images\activities\phoneCall.png,Phone Call,activities
 \res\drawable\images\activities\remote.png,Remote,activities
 \res\drawable\images\activities\sleep.png,Sleep,activities
-\res\drawable\images\activities\temple.svg,Temple,activities
 \res\drawable\images\activities\wheelChair.png,Wheel Chair,activities
 \res\drawable\images\family\badillo\Alex.jpg,Alex,family
 \res\drawable\images\family\badillo\Alexander.jpg,Alexander,family
