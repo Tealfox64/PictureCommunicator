@@ -24,9 +24,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_SLOT_CHOICE = "cs246.picturecommunicator.SLOT_CHOICE";
 
     // 4 buttons represent four activities
-    private ImageButton request1;
-    private ImageButton request2;
-    private ImageButton request3;
+
 
     /**
      *
@@ -37,13 +35,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //request1 = (ImageButton) findViewById(R.id.imageButton1);
-        //request1.setOnClickListener(new View.OnClickListener() {
-        //    @Override
-        //    public void onClick(View view) {
-        //        openPictureMenu();
-        //    }
-        //});
+        // TODO: We need to run the three tests to check whether or not a previous slot has been chosen
+        // If isSlot1Empty
     }
 
     /**
@@ -53,6 +46,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent (this, CategoryMenu.class);
         startActivity(intent);
     }
-
+//  TODO: We need to create three functions: One for each slot
 }
 
