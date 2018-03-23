@@ -49,8 +49,11 @@ public class ListSubMenu extends AppCompatActivity {
         List<HashMap<String, String>> categoryListItems = new ArrayList<HashMap<String, String>>();
 
         Intent intent = getIntent();
-        //intent.getStringExtra(EXTRA_SLOT_CHOICE);
-        //intent.getStringExtra(EXTRA_CATEGORY_CHOICE);
+        intent.getStringExtra(MainActivity.EXTRA_SLOT_CHOICE);
+        intent.getStringExtra(CategoryMenu.EXTRA_CATEGORY_CHOICE);
+
+        //TODO: Landon - Get the category list depending on the EXTRA_CATEGORY_CHOICE.
+
 
         //putting the title, description, and image in the HashMap/Array List
         for (int i = 0; i < 8; i++) {
@@ -68,4 +71,6 @@ public class ListSubMenu extends AppCompatActivity {
         ListView androidListView = findViewById(R.id.list);
         androidListView.setAdapter(simpleAdapter);
     }
+
+    // TODO: Landon -  Create a function to store the image chosen and the category into shared preferences.
 }

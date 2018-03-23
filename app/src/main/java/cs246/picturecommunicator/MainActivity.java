@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // TODO: We need to run the three tests to check whether or not a previous slot has been chosen
+        // TODO: Anthony - We need to run the three tests to check whether or not a previous slot has been chosen
         // If isSlot1Empty
     }
 
@@ -46,6 +46,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent (this, CategoryMenu.class);
         startActivity(intent);
     }
-//  TODO: We need to create three functions: One for each slot
+//  TODO: Anthony - We need to create three functions: One for each slot
 }
 
