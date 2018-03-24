@@ -1,3 +1,5 @@
+package cs246.picturecommunicator;
+
 /**
  * Created by mlbru on 3/21/2018.
  */
@@ -5,7 +7,7 @@
 /**
  *
  */
-public class Picture {
+public class PictureHolder {
     /**
      * A class to store individual data for each image file. Includes:
      * <ul>
@@ -21,7 +23,7 @@ public class Picture {
     /**
      * Picture (default constructor) sets all variables to ""
      */
-    public Picture() {
+    public PictureHolder() {
         this.filename = "";
         this.label = "";
     }
@@ -32,7 +34,7 @@ public class Picture {
      * @param label
      * @param category
      */
-    public Picture(String filename, String label, String category) {
+    public PictureHolder(String filename, String label, String category) {
         this.filename = filename;
         this.label = label;
         this.category = category;
