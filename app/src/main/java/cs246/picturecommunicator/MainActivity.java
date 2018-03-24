@@ -3,11 +3,13 @@ package cs246.picturecommunicator;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.AssetManager;
 import android.graphics.Picture;
 import android.media.Image;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,9 +30,13 @@ import java.util.List;
  */
 public class MainActivity extends AppCompatActivity {
 
+    // string for the tag indicating the activity name for Log
+    private static final String TAG = "MainActivity";
+
     // string for Extra key for intent, public so it can be accessed
     public static final String EXTRA_SLOT_CHOICE = "cs246.picturecommunicator.SLOT_CHOICE";
 
+    // location of the picture data file
     public static String FILENAME = "listimages.txt";
 
     // 4 lists to store picture data
@@ -49,15 +55,39 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // read an entire line from a file, expects some kind of input stream
-        try(BufferedReader finReader = new BufferedReader(new InputStreamReader(openFileInput(FILENAME)))) {
+        // parse the data file into the lists
+        loadImageLists();
 
-            // create String outside of scope, and use a boolean expression
+        // TODO: Anthony - We need to run the three tests to check whether or not a previous slot has been chosen
+        if (isSlot1Empty()) {
+
+        }
+
+        if (isSlot2Empty()) {
+
+        }
+
+        if (isSlot3Empty()) {
+
+        }
+    }
+
+    protected void loadImageLists(){
+        // read an entire line from a file, expects some kind of input stream
+        Log.d(TAG,"Creating BufferedReader");
+        // specific manager for assets
+        AssetManager am = getAssets();
+        try(BufferedReader finReader = new BufferedReader(new InputStreamReader(am.open(FILENAME)))) {
+            Log.d(TAG,"Entered BufferedReader");
+
             String line;
             PictureHolder picture;
             String filepath;
             String label;
             String category;
+
+            Log.d(TAG,"Looping through " + FILENAME);
+            // create String outside of scope, and use a boolean expression
             while ( (line = finReader.readLine()) != null ) { // readline() strips the \n from the data
 
                 filepath = "";
@@ -73,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
                 {
                     label += line.charAt(i);
                 }
+                i++;
 
                 category = "";
                 for (; i < line.length(); i++)
@@ -84,6 +115,8 @@ public class MainActivity extends AppCompatActivity {
                 picture.filename = filepath;
                 picture.label = label;
                 picture.category = category;
+
+                Log.d(TAG,"Object created: \n  " + picture.category + " --- " + picture.label + " --- " +  picture.filename);
 
                 switch (picture.category)
                 {
@@ -105,6 +138,25 @@ public class MainActivity extends AppCompatActivity {
 
             }
 
+            // Verify by debugging
+            Log.d(TAG,"*****Verifying contents of each list*****");
+            // ASSUMING LISTS ARE ARRAY LISTS!!!
+            for (int i = 0; i < activitiesList.size(); i++) {
+                Log.d(TAG,"activitiesList[" + i + "] --- " + ((PictureHolder)activitiesList.get(i)).getLabel() + ": " +  ((PictureHolder)activitiesList.get(i)).getFilename());
+            }
+
+            for (int i = 0; i < foodList.size(); i++) {
+                Log.d(TAG,"foodList[" + i + "] --- " + ((PictureHolder)foodList.get(i)).getLabel() + ": " +  ((PictureHolder)foodList.get(i)).getFilename());
+            }
+
+            for (int i = 0; i < painList.size(); i++) {
+                Log.d(TAG,"painList[" + i + "] --- " + ((PictureHolder)painList.get(i)).getLabel() + ": " +  ((PictureHolder)painList.get(i)).getFilename());
+            }
+
+            for (int i = 0; i < familyList.size(); i++) {
+                Log.d(TAG,"familyList[" + i + "] --- " + ((PictureHolder)familyList.get(i)).getLabel() + ": " +  ((PictureHolder)familyList.get(i)).getFilename());
+            }
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -112,20 +164,8 @@ public class MainActivity extends AppCompatActivity {
         }
         ;
 
-        // TODO: Anthony - We need to run the three tests to check whether or not a previous slot has been chosen
-        if (isSlot1Empty()) {
 
-        }
-
-        if (isSlot2Empty()) {
-
-        }
-
-        if (isSlot3Empty()) {
-
-        }
     }
-
     /**
      *
      */
