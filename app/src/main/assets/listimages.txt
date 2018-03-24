@@ -1,70 +1,70 @@
-\res\drawable\images\activities\birthday.png,Birthday,activities
-\res\drawable\images\activities\car.png,Car,activities
-\res\drawable\images\activities\cemetary.png,Cemetary,activities
-\res\drawable\images\activities\church.jpg,Church,activities
-\res\drawable\images\activities\dogWalk.png,Dog Walk,activities
-\res\drawable\images\activities\feedCat.png,Feed Cat,activities
-\res\drawable\images\activities\feedDog.png,Feed Dog,activities
-\res\drawable\images\activities\house.jpg,House,activities
-\res\drawable\images\activities\missionary.jpg,Missionary,activities
-\res\drawable\images\activities\money.png,Money,activities
-\res\drawable\images\activities\phoneCall.png,Phone Call,activities
-\res\drawable\images\activities\remote.png,Remote,activities
-\res\drawable\images\activities\sleep.png,Sleep,activities
-\res\drawable\images\activities\wheelChair.png,Wheel Chair,activities
-\res\drawable\images\family\badillo\Alex.jpg,Alex,family
-\res\drawable\images\family\badillo\Alexander.jpg,Alexander,family
-\res\drawable\images\family\badillo\Andres.jpg,Andres,family
-\res\drawable\images\family\badillo\Badillo.jpg,Badillo,family
-\res\drawable\images\family\badillo\Beba.jpg,Beba,family
-\res\drawable\images\family\badillo\Bebo.jpg,Bebo,family
-\res\drawable\images\family\badillo\Ivri.jpg,Ivri,family
-\res\drawable\images\family\badillo\Viari.jpg,Viari,family
-\res\drawable\images\family\badillo\Viri.jpg,Viri,family
-\res\drawable\images\family\campbell\Alexandra.jpg,Alexandra,family
-\res\drawable\images\family\campbell\Ants.jpg,Ants,family
-\res\drawable\images\family\campbell\Brandon.jpg,Brandon,family
-\res\drawable\images\family\campbell\Campbell.jpg,Campbell,family
-\res\drawable\images\family\campbell\Derek.jpg,Derek,family
-\res\drawable\images\family\campbell\Ella.jpg,Ella,family
-\res\drawable\images\family\campbell\Grecia.jpg,Grecia,family
-\res\drawable\images\family\campbell\Nathan.jpg,Nathan,family
-\res\drawable\images\family\campbell\PaulC.jpg,Paul,family
-\res\drawable\images\family\campbell\Teresa.jpg,Teresa,family
-\res\drawable\images\family\campbell\Terry.jpg,Terry,family
-\res\drawable\images\family\vazquez\Adelina.jpg,Adelina,family
-\res\drawable\images\family\vazquez\Elizabeth.jpg,Elizabeth,family
-\res\drawable\images\family\vazquez\Emilia.jpg,Emilia,family
-\res\drawable\images\family\vazquez\Isabella.jpg,Isabella,family
-\res\drawable\images\family\vazquez\Alejandro.jpg,Alejandro,family
-\res\drawable\images\family\vazquez\Vazquez.jpg,Vazquez,family
-\res\drawable\images\family\vazquez\Victoria.jpg,Victoria,family
-\res\drawable\images\food\chicken.svg,Chicken,food
-\res\drawable\images\food\chile_relleno.jpg,Chile Relleno,food
-\res\drawable\images\food\coke.png,Coke,food
-\res\drawable\images\food\eggs.png,Eggs,food
-\res\drawable\images\food\filletOFish.jpeg,Fillet OFish,food
-\res\drawable\images\food\fish.png,Fish,food
-\res\drawable\images\food\mixedNuts.jpeg,Mixed Nuts,food
-\res\drawable\images\food\nopales.jpg,Nopales,food
-\res\drawable\images\food\oatmeal.png,Oatmeal,food
-\res\drawable\images\food\pepecuate.jpg,Pepecuate,food
-\res\drawable\images\food\rice.png,Rice,food
-\res\drawable\images\food\tortilla.jpeg,Tortilla,food
-\res\drawable\images\food\water.png,Water,food
-\res\drawable\images\food\whiteChocolate.jpg,White Chocolate,food
-\res\drawable\images\food\yogurt.png,Yogurt,food
-\res\drawable\images\medical\backPain.png,Back Pain,pain
-\res\drawable\images\medical\bloodSugar.png,Blood Sugar,pain
-\res\drawable\images\medical\chestPain.png,Chest Pain,pain
-\res\drawable\images\medical\dizzy.png,Dizzy,pain
-\res\drawable\images\medical\doctor.png,Doctor,pain
-\res\drawable\images\medical\glasses.png,Glasses,pain
-\res\drawable\images\medical\headPain.png,Head Pain,pain
-\res\drawable\images\medical\leg.png,Leg,pain
-\res\drawable\images\medical\massage.png,Massage,pain
-\res\drawable\images\medical\medicine.png,Medicine,pain
-\res\drawable\images\medical\neckPain.png,Neck Pain,pain
-\res\drawable\images\medical\prunes.jpg,Prunes,pain
-\res\drawable\images\medical\stomach.png,Stomach,pain
-\res\drawable\images\medical\teeth.png,Teeth,pain
+R.drawable.images.activities.birthday,Birthday,activities
+R.drawable.images.activities.car,Car,activities
+R.drawable.images.activities.cemetary,Cemetary,activities
+R.drawable.images.activities.church,Church,activities
+R.drawable.images.activities.dogWalk,Dog Walk,activities
+R.drawable.images.activities.feedCat,Feed Cat,activities
+R.drawable.images.activities.feedDog,Feed Dog,activities
+R.drawable.images.activities.house,House,activities
+R.drawable.images.activities.missionary,Missionary,activities
+R.drawable.images.activities.money,Money,activities
+R.drawable.images.activities.phoneCall,Phone Call,activities
+R.drawable.images.activities.remote,Remote,activities
+R.drawable.images.activities.sleep,Sleep,activities
+R.drawable.images.activities.wheelChair,Wheel Chair,activities
+R.drawable.images.family.badillo.Alex,Alex,family
+R.drawable.images.family.badillo.Alexander,Alexander,family
+R.drawable.images.family.badillo.Andres,Andres,family
+R.drawable.images.family.badillo.Badillo,Badillo,family
+R.drawable.images.family.badillo.Beba,Beba,family
+R.drawable.images.family.badillo.Bebo,Bebo,family
+R.drawable.images.family.badillo.Ivri,Ivri,family
+R.drawable.images.family.badillo.Viari,Viari,family
+R.drawable.images.family.badillo.Viri,Viri,family
+R.drawable.images.family.campbell.Alexandra,Alexandra,family
+R.drawable.images.family.campbell.Ants,Ants,family
+R.drawable.images.family.campbell.Brandon,Brandon,family
+R.drawable.images.family.campbell.Campbell,Campbell,family
+R.drawable.images.family.campbell.Derek,Derek,family
+R.drawable.images.family.campbell.Ella,Ella,family
+R.drawable.images.family.campbell.Grecia,Grecia,family
+R.drawable.images.family.campbell.Nathan,Nathan,family
+R.drawable.images.family.campbell.PaulC,Paul,family
+R.drawable.images.family.campbell.Teresa,Teresa,family
+R.drawable.images.family.campbell.Terry,Terry,family
+R.drawable.images.family.vazquez.Adelina,Adelina,family
+R.drawable.images.family.vazquez.Elizabeth,Elizabeth,family
+R.drawable.images.family.vazquez.Emilia,Emilia,family
+R.drawable.images.family.vazquez.Isabella,Isabella,family
+R.drawable.images.family.vazquez.Alejandro,Alejandro,family
+R.drawable.images.family.vazquez.Vazquez,Vazquez,family
+R.drawable.images.family.vazquez.Victoria,Victoria,family
+R.drawable.images.food.chicken,Chicken,food
+R.drawable.images.food.chile_relleno,Chile Relleno,food
+R.drawable.images.food.coke,Coke,food
+R.drawable.images.food.eggs,Eggs,food
+R.drawable.images.food.filletOFish,Fillet OFish,food
+R.drawable.images.food.fish,Fish,food
+R.drawable.images.food.mixedNuts,Mixed Nuts,food
+R.drawable.images.food.nopales,Nopales,food
+R.drawable.images.food.oatmeal,Oatmeal,food
+R.drawable.images.food.pepecuate,Pepecuate,food
+R.drawable.images.food.rice,Rice,food
+R.drawable.images.food.tortilla,Tortilla,food
+R.drawable.images.food.water,Water,food
+R.drawable.images.food.whiteChocolate,White Chocolate,food
+R.drawable.images.food.yogurt,Yogurt,food
+R.drawable.images.medical.backPain,Back Pain,pain
+R.drawable.images.medical.bloodSugar,Blood Sugar,pain
+R.drawable.images.medical.chestPain,Chest Pain,pain
+R.drawable.images.medical.dizzy,Dizzy,pain
+R.drawable.images.medical.doctor,Doctor,pain
+R.drawable.images.medical.glasses,Glasses,pain
+R.drawable.images.medical.headPain,Head Pain,pain
+R.drawable.images.medical.leg,Leg,pain
+R.drawable.images.medical.massage,Massage,pain
+R.drawable.images.medical.medicine,Medicine,pain
+R.drawable.images.medical.neckPain,Neck Pain,pain
+R.drawable.images.medical.prunes,Prunes,pain
+R.drawable.images.medical.stomach,Stomach,pain
+R.drawable.images.medical.teeth,Teeth,pain
