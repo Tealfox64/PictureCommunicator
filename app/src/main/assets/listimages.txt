@@ -2,69 +2,69 @@ birthday,Birthday,activities
 car,Car,activities
 cemetary,Cemetary,activities
 church,Church,activities
-dogwalk,Dog Walk,activities
-feedcat,Feed Cat,activities
-feeddog,Feed Dog,activities
+dogWalk,Dog Walk,activities
+feedCat,Feed Cat,activities
+feedDog,Feed Dog,activities
 house,House,activities
 missionary,Missionary,activities
 money,Money,activities
-phonecall,Phone Call,activities
+phoneCall,Phone Call,activities
 remote,Remote,activities
 sleep,Sleep,activities
-wheelchair,Wheel Chair,activities
-alex,Alex,family
-alexander,Alexander,family
-andres,Andres,family
-badillo,Badillo,family
-beba,Beba,family
-bebo,Bebo,family
-ivri,Ivri,family
-viari,Viari,family
-viri,Viri,family
-alexandra,Alexandra,family
-ants,Ants,family
-brandon,Brandon,family
-campbell,Campbell,family
-derek,Derek,family
-ella,Ella,family
-grecia,Grecia,family
-nathan,Nathan,family
-paulC,Paul,family
-teresa,Teresa,family
-terry,Terry,family
-adelina,Adelina,family
-elizabeth,Elizabeth,family
-emilia,Emilia,family
-isabella,Isabella,family
-alejandro,Alejandro,family
-vazquez,Vazquez,family
-victoria,Victoria,family
+wheelChair,Wheel Chair,activities
+badillo.Alex,Alex,family
+badillo.Alexander,Alexander,family
+badillo.Andres,Andres,family
+badillo.Badillo,Badillo,family
+badillo.Beba,Beba,family
+badillo.Bebo,Bebo,family
+badillo.Ivri,Ivri,family
+badillo.Viari,Viari,family
+badillo.Viri,Viri,family
+campbell.Alexandra,Alexandra,family
+campbell.Ants,Ants,family
+campbell.Brandon,Brandon,family
+campbell.Campbell,Campbell,family
+campbell.Derek,Derek,family
+campbell.Ella,Ella,family
+campbell.Grecia,Grecia,family
+campbell.Nathan,Nathan,family
+campbell.PaulC,Paul,family
+campbell.Teresa,Teresa,family
+campbell.Terry,Terry,family
+vazquez.Adelina,Adelina,family
+vazquez.Elizabeth,Elizabeth,family
+vazquez.Emilia,Emilia,family
+vazquez.Isabella,Isabella,family
+vazquez.Alejandro,Alejandro,family
+vazquez.Vazquez,Vazquez,family
+vazquez.Victoria,Victoria,family
 chicken,Chicken,food
 chile_relleno,Chile Relleno,food
 coke,Coke,food
 eggs,Eggs,food
-filletofish,Fillet OFish,food
+filletOFish,Fillet OFish,food
 fish,Fish,food
-mixednuts,Mixed Nuts,food
+mixedNuts,Mixed Nuts,food
 nopales,Nopales,food
 oatmeal,Oatmeal,food
 pepecuate,Pepecuate,food
 rice,Rice,food
 tortilla,Tortilla,food
 water,Water,food
-whitechocolate,White Chocolate,food
+whiteChocolate,White Chocolate,food
 yogurt,Yogurt,food
-backpain,Back Pain,pain
-bloodsugar,Blood Sugar,pain
-chestpain,Chest Pain,pain
+backPain,Back Pain,pain
+bloodSugar,Blood Sugar,pain
+chestPain,Chest Pain,pain
 dizzy,Dizzy,pain
 doctor,Doctor,pain
 glasses,Glasses,pain
-headpain,Head Pain,pain
+headPain,Head Pain,pain
 leg,Leg,pain
 massage,Massage,pain
 medicine,Medicine,pain
-neckpain,Neck Pain,pain
+neckPain,Neck Pain,pain
 prunes,Prunes,pain
 stomach,Stomach,pain
 teeth,Teeth,pain

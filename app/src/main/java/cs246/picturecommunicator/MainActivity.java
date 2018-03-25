@@ -1,16 +1,20 @@
 package cs246.picturecommunicator;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.AssetManager;
-import android.graphics.BitmapFactory;
-import android.provider.ContactsContract;
+import android.graphics.Picture;
+import android.media.Image;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -25,11 +29,10 @@ import java.util.List;
  * Each layout will hold all requests until further deletion.
  */
 public class MainActivity extends AppCompatActivity {
-    // variables to choose which image to use when request has been made
-    public static boolean isSlot1Empty = true;
-    public static boolean isSlot2Empty = true;
-    public static boolean isSlot3Empty = true;
-    public static String imagePath;
+
+    public boolean isSlot1Empty;
+    public boolean isSlot2Empty;
+    public boolean isSlot3Empty;
 
     // string for the tag indicating the activity name for Log
     private static final String TAG = "MainActivity";
@@ -46,11 +49,11 @@ public class MainActivity extends AppCompatActivity {
     public static List painList = new ArrayList<PictureHolder>();
     public static List familyList = new ArrayList<PictureHolder>();
 
-
+    public List getActivitiesList() {
+        return this.activitiesList;
+    }
     /**
-     *  Displays the three request categories. When
-     *  request has been made, category request image will change to chosen
-     *  request
+     *
      * @param savedInstanceState
      */
     @Override
@@ -59,39 +62,23 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // parse the data file into the lists
+        loadImageLists();
 
         // TODO: Anthony - We need to run the three tests to check whether or not a previous slot has been chosen
         if (isSlot1Empty()) {
-            ImageButton imgButton = (ImageButton) findViewById(R.id.imageButton1);
-//            imgButton.setImageResource(android.R.drawable.ic_input_add);
 
-
-//            int resourceId = MainActivity.getResources().getIdentifier(imagePath);
-            imgButton.setImageResource(getResources().getIdentifier("arrow", "drawable", getPackageName()));
-
-
-
-        } else {
-            ImageButton imgButton = (ImageButton) findViewById(R.id.imageButton1);
-            imgButton.setImageResource(R.drawable.example_image);
         }
+
         if (isSlot2Empty()) {
-            ImageButton imgButton = (ImageButton) findViewById(R.id.imageButton2);
-            imgButton.setImageResource(android.R.drawable.ic_input_add);
-        } else {
-            ImageButton imgButton = (ImageButton) findViewById(R.id.imageButton2);
-            imgButton.setImageResource(R.drawable.example_image);
+
         }
+
         if (isSlot3Empty()) {
-            ImageButton imgButton = (ImageButton) findViewById(R.id.imageButton3);
-            imgButton.setImageResource(android.R.drawable.ic_input_add);
-        } else {
-            ImageButton imgButton = (ImageButton) findViewById(R.id.imageButton3);
-            imgButton.setImageResource(R.drawable.example_image);
+
         }
     }
 
-    protected void loadImageLists() {
+    protected void loadImageLists(){
         // read an entire line from a file, expects some kind of input stream
         Log.d(TAG,"Creating BufferedReader");
         // specific manager for assets
@@ -183,20 +170,32 @@ public class MainActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        ;
+
 
     }
     /**
-     * Opening the category menu when one of the request button images has been pressed
+     *
      */
     public void openPictureMenu(View view) {
         Intent intent = new Intent (this, CategoryMenu.class);
         startActivity(intent);
     }
 //  TODO: Anthony - We need to create three functions: One for each slot
-    // checking to see if slots have a request made or not. Used for changing images
-    public boolean isSlot1Empty() { return isSlot1Empty; }
-    public boolean isSlot2Empty() { return isSlot2Empty; }
-    public boolean isSlot3Empty() { return isSlot3Empty; }
+
+
+
+    public boolean isSlot1Empty() {
+        return true;
+    }
+
+    public boolean isSlot2Empty() {
+        return true;
+    }
+
+    public boolean isSlot3Empty() {
+        return true;
+    }
 
     // TODO: Matthias - when program completely ends, change images in shared preferences back to plus-signs
 }
