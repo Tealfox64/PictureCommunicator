@@ -1,70 +1,70 @@
-R.drawable.images.activities.birthday,Birthday,activities
-R.drawable.images.activities.car,Car,activities
-R.drawable.images.activities.cemetary,Cemetary,activities
-R.drawable.images.activities.church,Church,activities
-R.drawable.images.activities.dogWalk,Dog Walk,activities
-R.drawable.images.activities.feedCat,Feed Cat,activities
-R.drawable.images.activities.feedDog,Feed Dog,activities
-R.drawable.images.activities.house,House,activities
-R.drawable.images.activities.missionary,Missionary,activities
-R.drawable.images.activities.money,Money,activities
-R.drawable.images.activities.phoneCall,Phone Call,activities
-R.drawable.images.activities.remote,Remote,activities
-R.drawable.images.activities.sleep,Sleep,activities
-R.drawable.images.activities.wheelChair,Wheel Chair,activities
-R.drawable.images.family.badillo.Alex,Alex,family
-R.drawable.images.family.badillo.Alexander,Alexander,family
-R.drawable.images.family.badillo.Andres,Andres,family
-R.drawable.images.family.badillo.Badillo,Badillo,family
-R.drawable.images.family.badillo.Beba,Beba,family
-R.drawable.images.family.badillo.Bebo,Bebo,family
-R.drawable.images.family.badillo.Ivri,Ivri,family
-R.drawable.images.family.badillo.Viari,Viari,family
-R.drawable.images.family.badillo.Viri,Viri,family
-R.drawable.images.family.campbell.Alexandra,Alexandra,family
-R.drawable.images.family.campbell.Ants,Ants,family
-R.drawable.images.family.campbell.Brandon,Brandon,family
-R.drawable.images.family.campbell.Campbell,Campbell,family
-R.drawable.images.family.campbell.Derek,Derek,family
-R.drawable.images.family.campbell.Ella,Ella,family
-R.drawable.images.family.campbell.Grecia,Grecia,family
-R.drawable.images.family.campbell.Nathan,Nathan,family
-R.drawable.images.family.campbell.PaulC,Paul,family
-R.drawable.images.family.campbell.Teresa,Teresa,family
-R.drawable.images.family.campbell.Terry,Terry,family
-R.drawable.images.family.vazquez.Adelina,Adelina,family
-R.drawable.images.family.vazquez.Elizabeth,Elizabeth,family
-R.drawable.images.family.vazquez.Emilia,Emilia,family
-R.drawable.images.family.vazquez.Isabella,Isabella,family
-R.drawable.images.family.vazquez.Alejandro,Alejandro,family
-R.drawable.images.family.vazquez.Vazquez,Vazquez,family
-R.drawable.images.family.vazquez.Victoria,Victoria,family
-R.drawable.images.food.chicken,Chicken,food
-R.drawable.images.food.chile_relleno,Chile Relleno,food
-R.drawable.images.food.coke,Coke,food
-R.drawable.images.food.eggs,Eggs,food
-R.drawable.images.food.filletOFish,Fillet OFish,food
-R.drawable.images.food.fish,Fish,food
-R.drawable.images.food.mixedNuts,Mixed Nuts,food
-R.drawable.images.food.nopales,Nopales,food
-R.drawable.images.food.oatmeal,Oatmeal,food
-R.drawable.images.food.pepecuate,Pepecuate,food
-R.drawable.images.food.rice,Rice,food
-R.drawable.images.food.tortilla,Tortilla,food
-R.drawable.example_image,Water,food
-R.drawable.images.food.whiteChocolate,White Chocolate,food
-R.drawable.images.food.yogurt,Yogurt,food
-R.drawable.images.medical.backPain,Back Pain,pain
-R.drawable.images.medical.bloodSugar,Blood Sugar,pain
-R.drawable.images.medical.chestPain,Chest Pain,pain
-R.drawable.images.medical.dizzy,Dizzy,pain
-R.drawable.images.medical.doctor,Doctor,pain
-R.drawable.images.medical.glasses,Glasses,pain
-R.drawable.images.medical.headPain,Head Pain,pain
-R.drawable.images.medical.leg,Leg,pain
-R.drawable.images.medical.massage,Massage,pain
-R.drawable.images.medical.medicine,Medicine,pain
-R.drawable.images.medical.neckPain,Neck Pain,pain
-R.drawable.images.medical.prunes,Prunes,pain
-R.drawable.images.medical.stomach,Stomach,pain
-R.drawable.images.medical.teeth,Teeth,pain
+birthday,Birthday,activities
+car,Car,activities
+cemetary,Cemetary,activities
+church,Church,activities
+dogWalk,Dog Walk,activities
+feedCat,Feed Cat,activities
+feedDog,Feed Dog,activities
+house,House,activities
+missionary,Missionary,activities
+money,Money,activities
+phoneCall,Phone Call,activities
+remote,Remote,activities
+sleep,Sleep,activities
+wheelChair,Wheel Chair,activities
+badillo.Alex,Alex,family
+badillo.Alexander,Alexander,family
+badillo.Andres,Andres,family
+badillo.Badillo,Badillo,family
+badillo.Beba,Beba,family
+badillo.Bebo,Bebo,family
+badillo.Ivri,Ivri,family
+badillo.Viari,Viari,family
+badillo.Viri,Viri,family
+campbell.Alexandra,Alexandra,family
+campbell.Ants,Ants,family
+campbell.Brandon,Brandon,family
+campbell.Campbell,Campbell,family
+campbell.Derek,Derek,family
+campbell.Ella,Ella,family
+campbell.Grecia,Grecia,family
+campbell.Nathan,Nathan,family
+campbell.PaulC,Paul,family
+campbell.Teresa,Teresa,family
+campbell.Terry,Terry,family
+vazquez.Adelina,Adelina,family
+vazquez.Elizabeth,Elizabeth,family
+vazquez.Emilia,Emilia,family
+vazquez.Isabella,Isabella,family
+vazquez.Alejandro,Alejandro,family
+vazquez.Vazquez,Vazquez,family
+vazquez.Victoria,Victoria,family
+chicken,Chicken,food
+chile_relleno,Chile Relleno,food
+coke,Coke,food
+eggs,Eggs,food
+filletOFish,Fillet OFish,food
+fish,Fish,food
+mixedNuts,Mixed Nuts,food
+nopales,Nopales,food
+oatmeal,Oatmeal,food
+pepecuate,Pepecuate,food
+rice,Rice,food
+tortilla,Tortilla,food
+water,Water,food
+whiteChocolate,White Chocolate,food
+yogurt,Yogurt,food
+backPain,Back Pain,pain
+bloodSugar,Blood Sugar,pain
+chestPain,Chest Pain,pain
+dizzy,Dizzy,pain
+doctor,Doctor,pain
+glasses,Glasses,pain
+headPain,Head Pain,pain
+leg,Leg,pain
+massage,Massage,pain
+medicine,Medicine,pain
+neckPain,Neck Pain,pain
+prunes,Prunes,pain
+stomach,Stomach,pain
+teeth,Teeth,pain

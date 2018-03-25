@@ -118,7 +118,9 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 picture = new PictureHolder();
-                picture.filename = filepath;
+
+                picture.filename = getResources().getIdentifier(filepath,
+                        "drawable", getPackageName());
                 picture.label = label;
                 picture.category = category;
 
