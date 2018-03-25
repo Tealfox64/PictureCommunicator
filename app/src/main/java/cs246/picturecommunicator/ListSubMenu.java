@@ -77,7 +77,7 @@ public class ListSubMenu extends AppCompatActivity {
             PictureHolder temp = (PictureHolder)currentList.get(i);
 
             hm.put("listview_title",temp.getLabel());
-            hm.put("listview_image",temp.getFilename());
+            hm.put("listview_image",Integer.toString(temp.getFilename()));
 
 
 
