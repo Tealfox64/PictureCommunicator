@@ -43,6 +43,7 @@ public class CategoryMenu extends AppCompatActivity {
         intent.putExtra(EXTRA_CATEGORY_CHOICE, category);
         Log.d(TAG, category + " for " + slotID + "selected.");
         startActivity(intent);
+
     }
 
     public void foodButton(View view) {
