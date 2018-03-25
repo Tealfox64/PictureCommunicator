@@ -29,10 +29,11 @@ import java.util.List;
  * Each layout will hold all requests until further deletion.
  */
 public class MainActivity extends AppCompatActivity {
-
-    public boolean isSlot1Empty;
-    public boolean isSlot2Empty;
-    public boolean isSlot3Empty;
+    // variables to choose which image to use when request has been made
+    public static boolean isSlot1Empty = true;
+    public static boolean isSlot2Empty = true;
+    public static boolean isSlot3Empty = true;
+    public static String imagePath;
 
     // string for the tag indicating the activity name for Log
     private static final String TAG = "MainActivity";
@@ -53,7 +54,9 @@ public class MainActivity extends AppCompatActivity {
         return this.activitiesList;
     }
     /**
-     *
+     *  Displays the three request categories. When
+     *  request has been made, category request image will change to chosen
+     *  request
      * @param savedInstanceState
      */
     @Override
@@ -65,16 +68,28 @@ public class MainActivity extends AppCompatActivity {
         loadImageLists();
 
         // TODO: Anthony - We need to run the three tests to check whether or not a previous slot has been chosen
-        if (isSlot1Empty()) {
-
+        if (Slot1Empty()) {
+            ImageButton imgButton = (ImageButton) findViewById(R.id.imageButton1);
+            imgButton.setImageResource(android.R.drawable.ic_input_add);
+        } else {
+            ImageButton imgButton = (ImageButton) findViewById(R.id.imageButton1);
+            imgButton.setImageResource(getResources().getIdentifier(imagePath, "drawable", getPackageName()));
         }
 
-        if (isSlot2Empty()) {
-
+        if (Slot2Empty()) {
+            ImageButton imgButton = (ImageButton) findViewById(R.id.imageButton2);
+            imgButton.setImageResource(android.R.drawable.ic_input_add);
+        } else {
+            ImageButton imgButton = (ImageButton) findViewById(R.id.imageButton2);
+            imgButton.setImageResource(getResources().getIdentifier(imagePath, "drawable", getPackageName()));
         }
 
-        if (isSlot3Empty()) {
-
+        if (Slot3Empty()) {
+            ImageButton imgButton = (ImageButton) findViewById(R.id.imageButton3);
+            imgButton.setImageResource(android.R.drawable.ic_input_add);
+        } else {
+            ImageButton imgButton = (ImageButton) findViewById(R.id.imageButton3);
+            imgButton.setImageResource(getResources().getIdentifier(imagePath, "drawable", getPackageName()));
         }
     }
 
@@ -173,27 +188,17 @@ public class MainActivity extends AppCompatActivity {
 
     }
     /**
-     *
+     * Opening the category menu when one of the request button images has been pressed
      */
     public void openPictureMenu(View view) {
         Intent intent = new Intent (this, CategoryMenu.class);
         startActivity(intent);
     }
 //  TODO: Anthony - We need to create three functions: One for each slot
-
-
-
-    public boolean isSlot1Empty() {
-        return true;
-    }
-
-    public boolean isSlot2Empty() {
-        return true;
-    }
-
-    public boolean isSlot3Empty() {
-        return true;
-    }
+    // checking to see if slots have a request made or not. Used for changing images
+    public boolean Slot1Empty() { return isSlot1Empty; }
+    public boolean Slot2Empty() { return isSlot2Empty; }
+    public boolean Slot3Empty() { return isSlot3Empty; }
 
     // TODO: Matthias - when program completely ends, change images in shared preferences back to plus-signs
 }
