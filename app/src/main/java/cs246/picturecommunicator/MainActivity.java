@@ -30,6 +30,10 @@ import java.util.List;
  */
 public class MainActivity extends AppCompatActivity {
 
+    public boolean isSlot1Empty;
+    public boolean isSlot2Empty;
+    public boolean isSlot3Empty;
+
     // string for the tag indicating the activity name for Log
     private static final String TAG = "MainActivity";
 
@@ -40,12 +44,14 @@ public class MainActivity extends AppCompatActivity {
     public static String FILENAME = "listimages.txt";
 
     // 4 lists to store picture data
-    public List activitiesList = new ArrayList<PictureHolder>();
-    public List foodList = new ArrayList<PictureHolder>();
-    public List painList = new ArrayList<PictureHolder>();
-    public List familyList = new ArrayList<PictureHolder>();
+    public static List activitiesList = new ArrayList<PictureHolder>();
+    public static List foodList = new ArrayList<PictureHolder>();
+    public static List painList = new ArrayList<PictureHolder>();
+    public static List familyList = new ArrayList<PictureHolder>();
 
-
+    public List getActivitiesList() {
+        return this.activitiesList;
+    }
     /**
      *
      * @param savedInstanceState

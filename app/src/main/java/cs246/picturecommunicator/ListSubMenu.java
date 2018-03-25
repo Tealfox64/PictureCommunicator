@@ -17,6 +17,7 @@ import java.util.List;
  */
 public class ListSubMenu extends AppCompatActivity {
 
+    List currentList = new ArrayList<PictureHolder>();
     // Array of strings for ListView Title
     // take in the list from the previous
     String[] listviewTitle = new String[]{
@@ -49,26 +50,54 @@ public class ListSubMenu extends AppCompatActivity {
         List<HashMap<String, String>> categoryListItems = new ArrayList<HashMap<String, String>>();
 
         Intent intent = getIntent();
-        intent.getStringExtra(MainActivity.EXTRA_SLOT_CHOICE);
-        intent.getStringExtra(CategoryMenu.EXTRA_CATEGORY_CHOICE);
+        String slot = intent.getStringExtra(MainActivity.EXTRA_SLOT_CHOICE);
+        String category = intent.getStringExtra(CategoryMenu.EXTRA_CATEGORY_CHOICE);
 
         //TODO: Landon - Get the category list depending on the EXTRA_CATEGORY_CHOICE.
+        switch (category) {
+            case "Food":
+                currentList = MainActivity.foodList;
+                break;
+            case "Pain":
+                currentList = MainActivity.painList;
+                break;
+            case "Family":
+                currentList = MainActivity.familyList;
+                break;
+            case "Activities":
+                currentList = MainActivity.activitiesList;
+                break;
+        }
 
 
         //putting the title, description, and image in the HashMap/Array List
-        for (int i = 0; i < 8; i++) {
+        // The quantity needs to be the number of itmes in the catergory list chosen and not 8.
+        for (int i = 0; i < currentList.size(); i++) {
             HashMap<String, String> hm = new HashMap<String, String>();
-            hm.put("listview_title", listviewTitle[i]);
-            hm.put("listview_discription", listviewShortDescription[i]);
-            hm.put("listview_image", Integer.toString(listviewImage[i]));
+            PictureHolder temp = (PictureHolder)currentList.get(i);
+
+            hm.put("listview_title",temp.getLabel());
+            hm.put("listview_image",temp.getFilename());
+
+
+
+
+
+
+
+//            hm.put("listview_title", currentList[i]);
+//
+//            hm.put("listview_image", Integer.toString(listviewImage[i])); hm.put("listview_discription", listviewShortDescription[i]); //I am going to take this out
             categoryListItems.add(hm);
         }
 
         String[] from = {"listview_image", "listview_title", "listview_discription"};
         int[] to = {R.id.list_image, R.id.title};
 
+        //Creates the adapter using the row view (mylist.xml) and the list of HashMap items.
         SimpleAdapter simpleAdapter = new SimpleAdapter(getBaseContext(), categoryListItems, R.layout.mylist, from, to);
         ListView androidListView = findViewById(R.id.list);
+        //sets the new adapter
         androidListView.setAdapter(simpleAdapter);
     }
 

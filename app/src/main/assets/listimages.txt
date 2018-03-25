@@ -51,7 +51,7 @@ R.drawable.images.food.oatmeal,Oatmeal,food
 R.drawable.images.food.pepecuate,Pepecuate,food
 R.drawable.images.food.rice,Rice,food
 R.drawable.images.food.tortilla,Tortilla,food
-R.drawable.images.food.water,Water,food
+R.drawable.example_image,Water,food
 R.drawable.images.food.whiteChocolate,White Chocolate,food
 R.drawable.images.food.yogurt,Yogurt,food
 R.drawable.images.medical.backPain,Back Pain,pain
