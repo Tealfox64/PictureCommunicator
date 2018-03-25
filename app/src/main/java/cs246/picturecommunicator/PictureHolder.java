@@ -16,7 +16,7 @@ public class PictureHolder {
      *     <li>String category: the category the image falls under</li>
      * </ul>
      */
-    protected int filename;
+    protected String filename;
     protected String label;
     protected String category;
 
@@ -24,7 +24,7 @@ public class PictureHolder {
      * Picture (default constructor) sets all variables to ""
      */
     public PictureHolder() {
-        this.filename = 0;
+        this.filename = "";
         this.label = "";
     }
 
@@ -34,17 +34,17 @@ public class PictureHolder {
      * @param label
      * @param category
      */
-    public PictureHolder(int filename, String label, String category) {
+    public PictureHolder(String filename, String label, String category) {
         this.filename = filename;
         this.label = label;
         this.category = category;
     }
 
-    public int getFilename() {
+    public String getFilename() {
         return filename;
     }
 
-    public void setFilename(int filename) {
+    public void setFilename(String filename) {
         this.filename = filename;
     }
 
