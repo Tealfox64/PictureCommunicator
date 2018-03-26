@@ -13,6 +13,7 @@
         android:layout_marginEnd="4dp"
         android:backgroundTint="@android:color/holo_blue_dark"
         android:contentDescription="@string/activities_category"
+        android:onClick="activitiesButton"
         android:tint="@android:color/background_light"
         app:layout_constraintBottom_toTopOf="@+id/pain_category_button"
         app:layout_constraintEnd_toStartOf="@+id/food_category_button"

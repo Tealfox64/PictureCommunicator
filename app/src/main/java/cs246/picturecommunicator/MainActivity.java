@@ -50,9 +50,6 @@ public class MainActivity extends AppCompatActivity {
     public static List painList = new ArrayList<PictureHolder>();
     public static List familyList = new ArrayList<PictureHolder>();
 
-    public List getActivitiesList() {
-        return this.activitiesList;
-    }
     /**
      *  Displays the three request categories. When
      *  request has been made, category request image will change to chosen
@@ -190,10 +187,55 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Opening the category menu when one of the request button images has been pressed
      */
-    public void openPictureMenu(View view) {
-        Intent intent = new Intent (this, CategoryMenu.class);
+
+    public void sampleButton(View view) {
+         /*
+            Link to next activity via Intent
+            Context as first parameter (this) (is an Activity, subclass of Context)
+            Second Parameter: Class of the component to which the Intent should be delivered
+         */
+        Intent intent = new Intent(this, CategoryMenu.class);
+        String slotID = "Slot_0";
+        intent.putExtra(EXTRA_SLOT_CHOICE, slotID);
         startActivity(intent);
     }
+
+    public void slotOneButton(View view) {
+         /*
+            Link to next activity via Intent
+            Context as first parameter (this) (is an Activity, subclass of Context)
+            Second Parameter: Class of the component to which the Intent should be delivered
+         */
+        Intent intent = new Intent(this, CategoryMenu.class);
+        String slotID = "Slot_1";
+        intent.putExtra(EXTRA_SLOT_CHOICE, slotID);
+        startActivity(intent);
+    }
+
+    public void slotTwoButton(View view) {
+         /*
+            Link to next activity via Intent
+            Context as first parameter (this) (is an Activity, subclass of Context)
+            Second Parameter: Class of the component to which the Intent should be delivered
+         */
+        Intent intent = new Intent(this, CategoryMenu.class);
+        String slotID = "Slot_2";
+        intent.putExtra(EXTRA_SLOT_CHOICE, slotID);
+        startActivity(intent);
+    }
+
+    public void slotThreeButton(View view) {
+         /*
+            Link to next activity via Intent
+            Context as first parameter (this) (is an Activity, subclass of Context)
+            Second Parameter: Class of the component to which the Intent should be delivered
+         */
+        Intent intent = new Intent(this, CategoryMenu.class);
+        String slotID = "Slot_3";
+        intent.putExtra(EXTRA_SLOT_CHOICE, slotID);
+        startActivity(intent);
+    }
+
 //  TODO: Anthony - We need to create three functions: One for each slot
     // checking to see if slots have a request made or not. Used for changing images
     public boolean Slot1Empty() { return isSlot1Empty; }
