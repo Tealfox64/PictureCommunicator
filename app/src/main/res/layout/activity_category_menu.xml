@@ -44,7 +44,7 @@
         android:layout_marginTop="4dp"
         android:contentDescription="@string/pain_category"
         android:onClick="painButton"
-        android:tint="@android:color/holo_red_light"
+        android:tint="?android:attr/colorError"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/family_category_button"
         app:layout_constraintHorizontal_bias="0.5"
