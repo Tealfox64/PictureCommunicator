@@ -3,8 +3,15 @@ package cs246.picturecommunicator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.widget.AdapterView.OnItemClickListener;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -99,7 +106,32 @@ public class ListSubMenu extends AppCompatActivity {
         ListView androidListView = findViewById(R.id.list);
         //sets the new adapter
         androidListView.setAdapter(simpleAdapter);
-    }
 
+        // Item Click Listener for the listview
+        OnItemClickListener itemClickListener = new OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View container, int position, long id) {
+                // Getting the Container Layout of the ListView
+                LinearLayout linearLayoutParent = (LinearLayout) container;
+
+                // Getting the inner Linear Layout
+                LinearLayout linearLayoutChild = (LinearLayout ) linearLayoutParent.getChildAt(1);
+
+                // Getting the Country TextView
+                TextView label = (TextView) linearLayoutChild.getChildAt(0);
+
+                Toast.makeText(getBaseContext(), label.getText().toString(), Toast.LENGTH_SHORT).show();
+                //TODO: Search the list based on the TextView text and send the image RESID to the MainActivity
+            }
+        };
+
+        // Setting the item click listener for the listview
+        androidListView.setOnItemClickListener(itemClickListener);
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_list_sub_menu, menu);
+        return true;
+    }
     // TODO: Landon -  Create a function to store the image chosen and the category into shared preferences.
 }
