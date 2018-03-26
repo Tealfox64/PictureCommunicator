@@ -1,20 +1,12 @@
 package cs246.picturecommunicator;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.res.AssetManager;
-import android.graphics.Picture;
-import android.media.Image;
-import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -64,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         // parse the data file into the lists
         loadImageLists();
 
-        // TODO: Anthony - We need to run the three tests to check whether or not a previous slot has been chosen
+        // three tests to check whether or not a previous slot has been chosen
         if (Slot1Empty()) {
             ImageButton imgButton = (ImageButton) findViewById(R.id.imageButton1);
             imgButton.setImageResource(android.R.drawable.ic_input_add);
@@ -181,8 +173,6 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         ;
-
-
     }
     /**
      * Opening the category menu when one of the request button images has been pressed
