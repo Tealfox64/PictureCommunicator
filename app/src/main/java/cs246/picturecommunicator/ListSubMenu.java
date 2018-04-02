@@ -144,24 +144,30 @@ public class ListSubMenu extends AppCompatActivity {
                     if (Objects.equals(tempTitle, title)) {
                         SharedPreferences sharedPreferences = MainActivity.sharedpreferences;
                         SharedPreferences.Editor editor;
-                        editor = sharedPreferences.edit();
 
 
                         switch (slot) {
                             case "Slot1":
                                 MainActivity.slot1Category = category;
+
+                                editor = sharedPreferences.edit();
                                 editor.putInt(MainActivity.SLOT1_RESID,temp.getFilename());
                                 //MainActivity.slot1RES = temp.getFilename();
+                                editor.apply();
                                 isSlot1Empty = false;
 
                             case "Slot2":
                                 MainActivity.slot2Category = category;
+                                editor = sharedPreferences.edit();
                                 editor.putInt(MainActivity.SLOT2_RESID,temp.getFilename());
                                 //MainActivity.slot2RES = temp.getFilename();
+                                editor.apply();
                                 isSlot2Empty = false;
 
                             case "Slot3":
                                 MainActivity.slot3Category = category;
+                                editor = sharedPreferences.edit();
+                                editor.apply();
                                 editor.putInt(MainActivity.SLOT3_RESID,temp.getFilename());
                                 //MainActivity.slot3RES = temp.getFilename();
                                 isSlot3Empty = false;

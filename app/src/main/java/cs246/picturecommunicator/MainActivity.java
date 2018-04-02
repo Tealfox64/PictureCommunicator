@@ -27,13 +27,13 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
 
-    // Slot Categories
+    // Slot Categories - These might not be needed
     public static String slot1Category;
     public static String slot2Category;
     public static String slot3Category;
 
 
-    // Slot ImageRESID
+    // Slot ImageRESID Tags for Shared Preferences
     public static final String SLOT1_RESID = "slot1RES";
     public static final String SLOT2_RESID = "slot2RES";
     public static final String SLOT3_RESID = "slot3RES";
@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
         loadImageLists();
         sharedpreferences = getSharedPreferences("MyPref", Context.MODE_PRIVATE);
 
-
+        // TODO: The shared preferences has only been applied to the slot 1 check. Need to debug this in order to show the new picture correctly.
         // three tests to check whether or not a previous slot has been chosen
         if (!sharedpreferences.contains(SLOT1_RESID)) {
             ImageButton imgButton = (ImageButton) findViewById(R.id.imageButton1);
