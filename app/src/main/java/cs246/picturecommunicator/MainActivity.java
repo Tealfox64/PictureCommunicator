@@ -1,6 +1,8 @@
 package cs246.picturecommunicator;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,16 +17,28 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
 /**
  * Main activity class to generate buttons to
  * go from request activity to Picture Selector Activity.
  * Each layout will hold all requests until further deletion.
  */
 public class MainActivity extends AppCompatActivity {
-    // variables to choose which image to use when request has been made
-    public static boolean isSlot1Empty = true;
-    public static boolean isSlot2Empty = true;
-    public static boolean isSlot3Empty = true;
+
+
+    // Slot Categories
+    public static String slot1Category;
+    public static String slot2Category;
+    public static String slot3Category;
+
+
+    // Slot ImageRESID
+    public static final String SLOT1_RESID = "slot1RES";
+    public static final String SLOT2_RESID = "slot2RES";
+    public static final String SLOT3_RESID = "slot3RES";
+
+
     public static String imagePath;
 
     // string for the tag indicating the activity name for Log
@@ -41,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
     public static List foodList = new ArrayList<PictureHolder>();
     public static List painList = new ArrayList<PictureHolder>();
     public static List familyList = new ArrayList<PictureHolder>();
+    public static SharedPreferences sharedpreferences;
 
     /**
      *  Displays the three request categories. When
@@ -55,14 +70,17 @@ public class MainActivity extends AppCompatActivity {
 
         // parse the data file into the lists
         loadImageLists();
+        sharedpreferences = getSharedPreferences("MyPref", Context.MODE_PRIVATE);
+
 
         // three tests to check whether or not a previous slot has been chosen
-        if (Slot1Empty()) {
+        if (!sharedpreferences.contains(SLOT1_RESID)) {
             ImageButton imgButton = (ImageButton) findViewById(R.id.imageButton1);
             imgButton.setImageResource(android.R.drawable.ic_input_add);
         } else {
             ImageButton imgButton = (ImageButton) findViewById(R.id.imageButton1);
-            imgButton.setImageResource(getResources().getIdentifier(imagePath, "drawable", getPackageName()));
+            int temp = 0;
+            imgButton.setImageResource(getResources().getIdentifier(Integer.toString(sharedpreferences.getInt(SLOT1_RESID,temp)), "drawable", getPackageName()));
         }
 
         if (Slot2Empty()) {
@@ -228,9 +246,9 @@ public class MainActivity extends AppCompatActivity {
 
 //  TODO: Anthony - We need to create three functions: One for each slot
     // checking to see if slots have a request made or not. Used for changing images
-    public boolean Slot1Empty() { return isSlot1Empty; }
-    public boolean Slot2Empty() { return isSlot2Empty; }
-    public boolean Slot3Empty() { return isSlot3Empty; }
+    public boolean Slot1Empty() { return ListSubMenu.isSlot1Empty; }
+    public boolean Slot2Empty() { return ListSubMenu.isSlot2Empty; }
+    public boolean Slot3Empty() { return ListSubMenu.isSlot3Empty; }
 
     // TODO: Matthias - when program completely ends, change images in shared preferences back to plus-signs
 }
