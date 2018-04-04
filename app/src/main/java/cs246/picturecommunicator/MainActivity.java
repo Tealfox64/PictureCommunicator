@@ -38,6 +38,13 @@ public class MainActivity extends AppCompatActivity {
     public static final String SLOT2_RESID = "slot2RES";
     public static final String SLOT3_RESID = "slot3RES";
 
+    // Image Button Variables
+    ImageButton imgButton1;
+    ImageButton imgButton2;
+    ImageButton imgButton3;
+    ImageButton resetButton1;
+    ImageButton resetButton2;
+    ImageButton resetButton3;
 
     public static String imagePath;
 
@@ -75,30 +82,58 @@ public class MainActivity extends AppCompatActivity {
         // TODO: The shared preferences has only been applied to the slot 1 check. Need to debug this in order to show the new picture correctly.
         // three tests to check whether or not a previous slot has been chosen
         if (!sharedpreferences.contains(SLOT1_RESID)) {
-            ImageButton imgButton = (ImageButton) findViewById(R.id.imageButton1);
-            imgButton.setImageResource(android.R.drawable.ic_input_add);
+            imgButton1 = findViewById(R.id.imageButton1);
+            imgButton1.setImageResource(android.R.drawable.ic_input_add);
         } else {
-            ImageButton imgButton = (ImageButton) findViewById(R.id.imageButton1);
+            imgButton1 = findViewById(R.id.imageButton1);
             int temp = 0;
-            imgButton.setImageResource(getResources().getIdentifier(Integer.toString(sharedpreferences.getInt(SLOT1_RESID,temp)), "drawable", getPackageName()));
+            imgButton1.setImageResource(getResources().getIdentifier(Integer.toString(sharedpreferences.getInt(SLOT1_RESID,temp)), "drawable", getPackageName()));
         }
 
         if (Slot2Empty()) {
-            ImageButton imgButton = (ImageButton) findViewById(R.id.imageButton2);
-            imgButton.setImageResource(android.R.drawable.ic_input_add);
+            imgButton2 = findViewById(R.id.imageButton2);
+            imgButton2.setImageResource(android.R.drawable.ic_input_add);
         } else {
-            ImageButton imgButton = (ImageButton) findViewById(R.id.imageButton2);
-            imgButton.setImageResource(getResources().getIdentifier(imagePath, "drawable", getPackageName()));
+            imgButton2 = findViewById(R.id.imageButton2);
+            imgButton2.setImageResource(getResources().getIdentifier(imagePath, "drawable", getPackageName()));
         }
 
         if (Slot3Empty()) {
-            ImageButton imgButton = (ImageButton) findViewById(R.id.imageButton3);
-            imgButton.setImageResource(android.R.drawable.ic_input_add);
+            imgButton3 = findViewById(R.id.imageButton3);
+            imgButton3.setImageResource(android.R.drawable.ic_input_add);
         } else {
-            ImageButton imgButton = (ImageButton) findViewById(R.id.imageButton3);
-            imgButton.setImageResource(getResources().getIdentifier(imagePath, "drawable", getPackageName()));
+            imgButton3 = findViewById(R.id.imageButton3);
+            imgButton3.setImageResource(getResources().getIdentifier(imagePath, "drawable", getPackageName()));
         }
+        // reset request image
+        resetButton1 = findViewById(R.id.removeButton1);
+        resetButton1.setOnClickListener(imgButtonHandler1);
+        resetButton2 = findViewById(R.id.removeButton2);
+        resetButton2.setOnClickListener(imgButtonHandler2);
+        resetButton3 = findViewById(R.id.removeButton3);
+        resetButton3.setOnClickListener(imgButtonHandler3);
     }
+
+    View.OnClickListener imgButtonHandler1 = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            imgButton1.setImageResource(android.R.drawable.ic_input_add);
+        }
+    };
+    View.OnClickListener imgButtonHandler2 = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            imgButton2.setImageResource(android.R.drawable.ic_input_add);
+        }
+    };
+    View.OnClickListener imgButtonHandler3 = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            imgButton3.setImageResource(android.R.drawable.ic_input_add);
+        }
+    };
+
+
 
     protected void loadImageLists(){
         // read an entire line from a file, expects some kind of input stream
@@ -244,7 +279,16 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-//  TODO: Anthony - We need to create three functions: One for each slot
+    public void reset1(View view) {
+        ImageButton imgButton = (ImageButton) findViewById(R.id.imageButton1);
+        imgButton.setImageResource(android.R.drawable.ic_input_add);
+        sharedpreferences = getSharedPreferences("MyPref", Context.MODE_PRIVATE);
+
+        sharedpreferences.edit().clear().apply();
+    }
+
+
+    //  TODO: Anthony - We need to create three functions: One for each slot
     // checking to see if slots have a request made or not. Used for changing images
     public boolean Slot1Empty() { return ListSubMenu.isSlot1Empty; }
     public boolean Slot2Empty() { return ListSubMenu.isSlot2Empty; }

@@ -106,7 +106,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="slotOneButton"
-                app:srcCompat="@android:drawable/ic_input_add" />
+                app:srcCompat="@android:drawable/ic_input_add"/>
 
             <ImageButton
                 android:id="@+id/removeButton1"
