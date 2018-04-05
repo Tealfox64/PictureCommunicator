@@ -1,9 +1,11 @@
 package cs246.picturecommunicator;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.widget.AdapterView.OnItemClickListener;
 import android.view.View;
@@ -29,6 +31,8 @@ public class ListSubMenu extends AppCompatActivity {
     public static boolean isSlot1Empty = true;
     public static boolean isSlot2Empty = true;
     public static boolean isSlot3Empty = true;
+
+    private static final String TAG = "ListSubMenu";
 
     List currentList = new ArrayList<PictureHolder>();
     String title;
@@ -142,35 +146,41 @@ public class ListSubMenu extends AppCompatActivity {
                     tempTitle = temp.getLabel();
 
                     if (Objects.equals(tempTitle, title)) {
-                        SharedPreferences sharedPreferences = MainActivity.sharedpreferences;
+                        SharedPreferences sharedPreferences = getSharedPreferences("your_prefs", Activity.MODE_PRIVATE);
                         SharedPreferences.Editor editor;
 
 
                         switch (slot) {
-                            case "Slot1":
+                            case "Slot_1":
                                 MainActivity.slot1Category = category;
 
                                 editor = sharedPreferences.edit();
                                 editor.putInt(MainActivity.SLOT1_RESID,temp.getFilename());
+                                Log.d(TAG,"Slot 1: " + (temp.getLabel()));
                                 //MainActivity.slot1RES = temp.getFilename();
                                 editor.apply();
-                                isSlot1Empty = false;
+//                                isSlot1Empty = false;
 
-                            case "Slot2":
+                                break;
+                            case "Slot_2":
                                 MainActivity.slot2Category = category;
                                 editor = sharedPreferences.edit();
                                 editor.putInt(MainActivity.SLOT2_RESID,temp.getFilename());
                                 //MainActivity.slot2RES = temp.getFilename();
                                 editor.apply();
-                                isSlot2Empty = false;
+//                                isSlot2Empty = false;
 
-                            case "Slot3":
+                                break;
+                            case "Slot_3":
                                 MainActivity.slot3Category = category;
                                 editor = sharedPreferences.edit();
-                                editor.apply();
+
                                 editor.putInt(MainActivity.SLOT3_RESID,temp.getFilename());
+                                editor.apply();
                                 //MainActivity.slot3RES = temp.getFilename();
-                                isSlot3Empty = false;
+//                                isSlot3Empty = false;
+
+                                break;
                         }
                     }
 

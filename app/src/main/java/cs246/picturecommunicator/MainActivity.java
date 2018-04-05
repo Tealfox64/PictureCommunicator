@@ -1,5 +1,6 @@
 package cs246.picturecommunicator;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -62,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
     public static List foodList = new ArrayList<PictureHolder>();
     public static List painList = new ArrayList<PictureHolder>();
     public static List familyList = new ArrayList<PictureHolder>();
-    public static SharedPreferences sharedpreferences;
+    //public static SharedPreferences sharedpreferences;
 
     /**
      *  Displays the three request categories. When
@@ -77,7 +78,8 @@ public class MainActivity extends AppCompatActivity {
 
         // parse the data file into the lists
         loadImageLists();
-        sharedpreferences = getSharedPreferences("MyPref", Context.MODE_PRIVATE);
+        SharedPreferences sharedpreferences = getSharedPreferences("your_prefs", Activity.MODE_PRIVATE);
+
 
         // TODO: The shared preferences has only been applied to the slot 1 check. Need to debug this in order to show the new picture correctly.
         // three tests to check whether or not a previous slot has been chosen
@@ -86,8 +88,10 @@ public class MainActivity extends AppCompatActivity {
             imgButton1.setImageResource(android.R.drawable.ic_input_add);
         } else {
             imgButton1 = findViewById(R.id.imageButton1);
-            int temp = 0;
-            imgButton1.setImageResource(getResources().getIdentifier(Integer.toString(sharedpreferences.getInt(SLOT1_RESID,temp)), "drawable", getPackageName()));
+            int temp = sharedpreferences.getInt(SLOT1_RESID,-1);
+
+            if (temp != -1)
+                imgButton1.setImageResource(getResources().getIdentifier(Integer.toString(temp), "drawable", getPackageName()));
         }
 
         if (Slot2Empty()) {
@@ -95,7 +99,10 @@ public class MainActivity extends AppCompatActivity {
             imgButton2.setImageResource(android.R.drawable.ic_input_add);
         } else {
             imgButton2 = findViewById(R.id.imageButton2);
-            imgButton2.setImageResource(getResources().getIdentifier(imagePath, "drawable", getPackageName()));
+
+            int temp = sharedpreferences.getInt(SLOT2_RESID,-1);
+            if (temp!= -1)
+                imgButton2.setImageResource(getResources().getIdentifier(Integer.toString(temp), "drawable", getPackageName()));
         }
 
         if (Slot3Empty()) {
@@ -103,7 +110,10 @@ public class MainActivity extends AppCompatActivity {
             imgButton3.setImageResource(android.R.drawable.ic_input_add);
         } else {
             imgButton3 = findViewById(R.id.imageButton3);
-            imgButton3.setImageResource(getResources().getIdentifier(imagePath, "drawable", getPackageName()));
+
+            int temp = sharedpreferences.getInt(SLOT3_RESID,-1);
+            if (temp != -1)
+                imgButton3.setImageResource(getResources().getIdentifier(Integer.toString(temp), "drawable", getPackageName()));
         }
         // reset request image
         resetButton1 = findViewById(R.id.removeButton1);
@@ -282,7 +292,7 @@ public class MainActivity extends AppCompatActivity {
     public void reset1(View view) {
         ImageButton imgButton = (ImageButton) findViewById(R.id.imageButton1);
         imgButton.setImageResource(android.R.drawable.ic_input_add);
-        sharedpreferences = getSharedPreferences("MyPref", Context.MODE_PRIVATE);
+        SharedPreferences sharedpreferences = getSharedPreferences("your_prefs", Context.MODE_PRIVATE);
 
         sharedpreferences.edit().clear().apply();
     }
