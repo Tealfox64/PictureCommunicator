@@ -85,37 +85,37 @@ public class MainActivity extends AppCompatActivity {
         // three tests to check whether or not a previous slot has been chosen
         if (!sharedpreferences.contains(SLOT1_RESID)) {
             imgButton1 = findViewById(R.id.imageButton1);
-            imgButton1.setImageResource(android.R.drawable.ic_input_add);
+            imgButton1.setBackgroundResource(android.R.drawable.ic_input_add);
         } else {
             imgButton1 = findViewById(R.id.imageButton1);
             int temp = sharedpreferences.getInt(SLOT1_RESID,-1);
 
             if (temp != -1)
-                imgButton1.setImageResource(getResources().getIdentifier(Integer.toString(temp), "drawable", getPackageName()));
+                imgButton1.setBackgroundResource(getResources().getIdentifier(Integer.toString(temp), "drawable", getPackageName()));
         }
 
-        if (Slot2Empty()) {
+        if (!sharedpreferences.contains(SLOT2_RESID)) {
             imgButton2 = findViewById(R.id.imageButton2);
-            imgButton2.setImageResource(android.R.drawable.ic_input_add);
+            imgButton2.setBackgroundResource(android.R.drawable.ic_input_add);
         } else {
             imgButton2 = findViewById(R.id.imageButton2);
-
             int temp = sharedpreferences.getInt(SLOT2_RESID,-1);
             if (temp!= -1)
-                imgButton2.setImageResource(getResources().getIdentifier(Integer.toString(temp), "drawable", getPackageName()));
+                imgButton2.setBackgroundResource(getResources().getIdentifier(Integer.toString(temp), "drawable", getPackageName()));
         }
 
-        if (Slot3Empty()) {
+        if (!sharedpreferences.contains(SLOT3_RESID)) {
             imgButton3 = findViewById(R.id.imageButton3);
-            imgButton3.setImageResource(android.R.drawable.ic_input_add);
+            imgButton3.setBackgroundResource(android.R.drawable.ic_input_add);
         } else {
             imgButton3 = findViewById(R.id.imageButton3);
 
             int temp = sharedpreferences.getInt(SLOT3_RESID,-1);
             if (temp != -1)
-                imgButton3.setImageResource(getResources().getIdentifier(Integer.toString(temp), "drawable", getPackageName()));
+                imgButton3.setBackgroundResource(getResources().getIdentifier(Integer.toString(temp), "drawable", getPackageName()));
         }
         // reset request image
+//        resetButton1.setImageResource(R.drawable.adelina);
         resetButton1 = findViewById(R.id.removeButton1);
         resetButton1.setOnClickListener(imgButtonHandler1);
         resetButton2 = findViewById(R.id.removeButton2);
@@ -127,19 +127,20 @@ public class MainActivity extends AppCompatActivity {
     View.OnClickListener imgButtonHandler1 = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            imgButton1.setImageResource(android.R.drawable.ic_input_add);
+            imgButton1.setBackgroundResource(android.R.drawable.ic_input_add);
+
         }
     };
     View.OnClickListener imgButtonHandler2 = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            imgButton2.setImageResource(android.R.drawable.ic_input_add);
+            imgButton2.setBackgroundResource(android.R.drawable.ic_input_add);
         }
     };
     View.OnClickListener imgButtonHandler3 = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            imgButton3.setImageResource(android.R.drawable.ic_input_add);
+            imgButton3.setBackgroundResource(android.R.drawable.ic_input_add);
         }
     };
 
