@@ -149,7 +149,8 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             imgButton1.setBackgroundResource(android.R.drawable.ic_input_add);
-
+            getSharedPreferences(SLOT1_RESID, -1).edit().clear();
+            getSharedPreferences(SLOT1_RESID, -1).edit().apply();
         }
     };
 
@@ -328,17 +329,6 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra(EXTRA_SLOT_CHOICE, slotID);
         startActivity(intent);
     }
-
-    // TODO: Verify we don't need this - this logic might be what we use in the imgButtonHandler funtions to remove sharedPref data
-//    public void reset1(View view) {
-//        ImageButton imgButton = (ImageButton) findViewById(R.id.imageButton1);
-//        imgButton.setImageResource(android.R.drawable.ic_input_add);
-//        SharedPreferences sharedpreferences = getSharedPreferences("your_prefs", Context.MODE_PRIVATE);
-//
-//        sharedpreferences.edit().clear().apply();
-//    }
-
-
 
 }
 
