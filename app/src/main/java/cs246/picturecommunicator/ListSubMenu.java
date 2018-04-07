@@ -29,40 +29,17 @@ import java.util.Objects;
  * change the background image of the button slot in Main Activity
  */
 public class ListSubMenu extends AppCompatActivity {
-    // variables to choose which image to use when request has been made
-    // TODO: These are never used...?
-    public static boolean isSlot1Empty = true;
-    public static boolean isSlot2Empty = true;
-    public static boolean isSlot3Empty = true;
+
 
     // Tag for debugging
     private static final String TAG = "ListSubMenu";
 
-    // List to be displayed
+    // Temporary list of Pictures to be displayed in the list view.
     List currentList = new ArrayList<PictureHolder>();
     String title;
     String category;
     String slot;
 
-    // TODO: These are never used...?
-    // Array of strings for ListView Title
-    // take in the list from the previous
-    String[] listviewTitle = new String[]{
-            "ListView Title 1", "ListView Title 2", "ListView Title 3", "ListView Title 4",
-            "ListView Title 5", "ListView Title 6", "ListView Title 7", "ListView Title 8",
-    };
-
-    // TODO: Not used...?
-    int[] listviewImage = new int[]{
-            R.drawable.example_image, R.drawable.example_image, R.drawable.example_image, R.drawable.example_image,
-            R.drawable.example_image, R.drawable.example_image, R.drawable.example_image, R.drawable.example_image,
-    };
-
-    // TODO: Also not used...?
-    String[] listviewShortDescription = new String[]{
-            "Android ListView Short Description", "Android ListView Short Description", "Android ListView Short Description", "Android ListView Short Description",
-            "Android ListView Short Description", "Android ListView Short Description", "Android ListView Short Description", "Android ListView Short Description",
-    };
 
     /**
      * <h2>onCreate</h2>
@@ -79,8 +56,14 @@ public class ListSubMenu extends AppCompatActivity {
 
         List<HashMap<String, String>> categoryListItems = new ArrayList<HashMap<String, String>>();
 
+        // Receive the intent from the Category Menu
         Intent intent = getIntent();
+
+        // Get the slot number from the previous intent.
+        // This will then be passed back to the main activity in order to know which slot to put the selected picture.
         slot = intent.getStringExtra(MainActivity.EXTRA_SLOT_CHOICE);
+
+        // Get the category chosen from the previous intent
         category = intent.getStringExtra(CategoryMenu.EXTRA_CATEGORY_CHOICE);
 
         //Get the category list depending on the EXTRA_CATEGORY_CHOICE.
@@ -102,7 +85,7 @@ public class ListSubMenu extends AppCompatActivity {
 
 
         // Putting the title, description, and image in the HashMap/Array List
-        // The quantity needs to be the number of itmes in the catergory list chosen and not 8.
+        // The quantity needs to be the number of items in the category list chosen and not 8.
         for (int i = 0; i < currentList.size(); i++) {
             HashMap<String, String> hm = new HashMap<String, String>();
             PictureHolder temp = (PictureHolder)currentList.get(i);
@@ -111,14 +94,6 @@ public class ListSubMenu extends AppCompatActivity {
             hm.put("listview_image",Integer.toString(temp.getFilename()));
 
 
-
-
-
-
-            // TODO: Is this cleanable?
-//            hm.put("listview_title", currentList[i]);
-//
-//            hm.put("listview_image", Integer.toString(listviewImage[i])); hm.put("listview_discription", listviewShortDescription[i]); //I am going to take this out
             categoryListItems.add(hm);
         }
 
@@ -146,24 +121,26 @@ public class ListSubMenu extends AppCompatActivity {
                 // Getting the inner Linear Layout
                 LinearLayout linearLayoutChild = (LinearLayout ) linearLayoutParent.getChildAt(1);
 
-                // Getting the Country TextView
+                // Getting the Title of the picture clicked on by the user
                 TextView label = (TextView) linearLayoutChild.getChildAt(0);
 
+                //Show the user that the correct item was clicked on properly using a toast
                 Toast.makeText(getBaseContext(), label.getText().toString(), Toast.LENGTH_SHORT).show();
                 title = label.getText().toString();
 
                 //Search the list based on the TextView text and send the image RESID to the MainActivity
-
+                // Compares the title of the picture with the titles of all picture containers in the chosen list
                 for (int i = 0; i < currentList.size(); i++) {
                     PictureHolder temp = (PictureHolder)currentList.get(i);
                     String tempTitle;
                     tempTitle = temp.getLabel();
 
+
                     if (Objects.equals(tempTitle, title)) {
                         SharedPreferences sharedPreferences = getSharedPreferences("your_prefs", Activity.MODE_PRIVATE);
                         SharedPreferences.Editor editor;
 
-                        // TODO: There are some commented code snippets that could be cleaned...?
+                        // Stores the RESID of the selected picture in the correct slot within shared preferences.
                         switch (slot) {
                             case "Slot_1":
                                 MainActivity.slot1Category = category;
@@ -171,18 +148,16 @@ public class ListSubMenu extends AppCompatActivity {
                                 editor = sharedPreferences.edit();
                                 editor.putInt(MainActivity.SLOT1_RESID,temp.getFilename());
                                 Log.d(TAG,"Slot 1: " + (temp.getLabel()));
-                                //MainActivity.slot1RES = temp.getFilename();
+
                                 editor.apply();
-//                                isSlot1Empty = false;
 
                                 break;
                             case "Slot_2":
                                 MainActivity.slot2Category = category;
                                 editor = sharedPreferences.edit();
                                 editor.putInt(MainActivity.SLOT2_RESID,temp.getFilename());
-                                //MainActivity.slot2RES = temp.getFilename();
+
                                 editor.apply();
-//                                isSlot2Empty = false;
 
                                 break;
                             case "Slot_3":
@@ -191,8 +166,7 @@ public class ListSubMenu extends AppCompatActivity {
 
                                 editor.putInt(MainActivity.SLOT3_RESID,temp.getFilename());
                                 editor.apply();
-                                //MainActivity.slot3RES = temp.getFilename();
-//                                isSlot3Empty = false;
+
 
                                 break;
                         }
@@ -204,17 +178,7 @@ public class ListSubMenu extends AppCompatActivity {
                 Intent intent;
                 intent = new Intent(parent.getContext(), MainActivity.class);
                 startActivity(intent);
-                // TODO: Clean these...?
-                // Slot Categories
-//                public static String slot1Category;
-//                public static String slot2Category;
-//                public static String slot3Category;
-//
-//
-//                // Slot ImageRESID
-//                public static int slot1RES;
-//                public static int slot2RES;
-//                public static int slot3RES;
+
             }
         };
 
