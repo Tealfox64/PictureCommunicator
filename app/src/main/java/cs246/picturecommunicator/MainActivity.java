@@ -19,16 +19,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
 /**
- * Main activity class to generate buttons to
- * go from request activity to Picture Selector Activity.
- * Each layout will hold all requests until further deletion.
+ * <h1>Main Activity</h1>
+ * Main Activity is what the user sees as they start the app.
+ * <p>
+ * By default, there are 6 buttons, 3 buttons that will contain the images
+ * (they begin with plus signs) and 3 buttons beside each of them that
+ * reset the button to the plus sign image.
+ * <p>
+ * Variables include:
+ * <ul>
+ *     <li>public static String slot#Category: string variables used in ListSubMenu to define each slot's category</li>
+ *     <li>public static final String SLOT#_RESID: Slot ImageRESID Tags for Shared Preferences</li>
+ *     <li>ImageButton variables: interact with the image and reset buttons</li>
+ *     <li>private static final String TAG: holds the tag name for debugging</li>
+ *     <li>public static final String EXTRA_SLOT_CHOICE: string for Extra key for intent, public so it can be accessed</li>
+ *     <li>public static String FILENAME: location of the picture data list</li>
+ *     <li>public static List #####List: 4 array lists to store picture data</li>
+ * </ul>
+ *
  */
 public class MainActivity extends AppCompatActivity {
 
 
-    // Slot Categories - These might not be needed
+    // Slot Categories - TODO: LOOK AT THIS WE MAY NOT NEED THIS, but it is used in ListSubMenu
     public static String slot1Category;
     public static String slot2Category;
     public static String slot3Category;
@@ -47,8 +61,6 @@ public class MainActivity extends AppCompatActivity {
     ImageButton resetButton2;
     ImageButton resetButton3;
 
-    public static String imagePath;
-
     // string for the tag indicating the activity name for Log
     private static final String TAG = "MainActivity";
 
@@ -63,13 +75,12 @@ public class MainActivity extends AppCompatActivity {
     public static List foodList = new ArrayList<PictureHolder>();
     public static List painList = new ArrayList<PictureHolder>();
     public static List familyList = new ArrayList<PictureHolder>();
-    //public static SharedPreferences sharedpreferences;
 
     /**
-     *  Displays the three request categories. When
-     *  request has been made, category request image will change to chosen
-     *  request
-     * @param savedInstanceState
+     * <h2>OnCreate</h2>
+     * This first function will create the lists of images, and set up the buttons based on the images
+     * stored in SharedPreferences. It will also start the OnClickListeners for each of the reset buttons
+     * @param savedInstanceState Takes in the current state of app.
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,11 +89,13 @@ public class MainActivity extends AppCompatActivity {
 
         // parse the data file into the lists
         loadImageLists();
+
+        // activate shared preferences retrieval
         SharedPreferences sharedpreferences = getSharedPreferences("your_prefs", Activity.MODE_PRIVATE);
 
-
-        // TODO: The shared preferences has only been applied to the slot 1 check. Need to debug this in order to show the new picture correctly.
-        // three tests to check whether or not a previous slot has been chosen
+        // change the background of the buttons to the images stored in shared preferences, if they are there.
+        // if there are no shared preferences, set the background to a plus sign.
+        // slot 1 check
         if (!sharedpreferences.contains(SLOT1_RESID)) {
             imgButton1 = findViewById(R.id.imageButton1);
             imgButton1.setBackgroundResource(android.R.drawable.ic_input_add);
@@ -94,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
                 imgButton1.setBackgroundResource(getResources().getIdentifier(Integer.toString(temp), "drawable", getPackageName()));
         }
 
+        // slot 2 check
         if (!sharedpreferences.contains(SLOT2_RESID)) {
             imgButton2 = findViewById(R.id.imageButton2);
             imgButton2.setBackgroundResource(android.R.drawable.ic_input_add);
@@ -104,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
                 imgButton2.setBackgroundResource(getResources().getIdentifier(Integer.toString(temp), "drawable", getPackageName()));
         }
 
+        // slot 3 check
         if (!sharedpreferences.contains(SLOT3_RESID)) {
             imgButton3 = findViewById(R.id.imageButton3);
             imgButton3.setBackgroundResource(android.R.drawable.ic_input_add);
@@ -114,8 +129,8 @@ public class MainActivity extends AppCompatActivity {
             if (temp != -1)
                 imgButton3.setBackgroundResource(getResources().getIdentifier(Integer.toString(temp), "drawable", getPackageName()));
         }
-        // reset request image
-//        resetButton1.setImageResource(R.drawable.adelina);
+
+        // set the onClickListeners for each of the reset buttons
         resetButton1 = findViewById(R.id.removeButton1);
         resetButton1.setOnClickListener(imgButtonHandler1);
         resetButton2 = findViewById(R.id.removeButton2);
@@ -124,6 +139,12 @@ public class MainActivity extends AppCompatActivity {
         resetButton3.setOnClickListener(imgButtonHandler3);
     }
 
+    // TODO: I think these clears need to delete what is in the shared preferences as well
+    /**
+     * <h2>imgButtonHandler1</h2>
+     * An OnClickListener for the first delete button that resets the background
+     * to a plus sign.
+     */
     View.OnClickListener imgButtonHandler1 = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -131,12 +152,24 @@ public class MainActivity extends AppCompatActivity {
 
         }
     };
+
+    /**
+     * <h2>imgButtonHandler2</h2>
+     * An OnClickListener for the second delete button that resets the background
+     * to a plus sign.
+     */
     View.OnClickListener imgButtonHandler2 = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             imgButton2.setBackgroundResource(android.R.drawable.ic_input_add);
         }
     };
+
+    /**
+     * <h2>imgButtonHandler3</h2>
+     * An OnClickListener for the third delete button that resets the background
+     * to a plus sign.
+     */
     View.OnClickListener imgButtonHandler3 = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -144,8 +177,11 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-
-
+    /**
+     * <h2>loadImageLists</h2>
+     * Performs the arduous task of accessing the list text file and parsing the data for each image into
+     * one of 4 lists that represent each image category, with their names and filepaths ready.
+     */
     protected void loadImageLists(){
         // read an entire line from a file, expects some kind of input stream
         Log.d(TAG,"Creating BufferedReader");
@@ -164,6 +200,7 @@ public class MainActivity extends AppCompatActivity {
             // create String outside of scope, and use a boolean expression
             while ( (line = finReader.readLine()) != null ) { // readline() strips the \n from the data
 
+                // parse filepath, label, and category at each comma
                 filepath = "";
                 int i;
                 for (i = 0; line.charAt(i) != ',' && i < line.length(); i++)
@@ -185,6 +222,7 @@ public class MainActivity extends AppCompatActivity {
                     category += line.charAt(i);
                 }
 
+                // put the parsed variables into a pictureHolder object
                 picture = new PictureHolder();
                 picture.filename = getResources().getIdentifier(filepath,"drawable", getPackageName());
                 picture.label = label;
@@ -192,6 +230,7 @@ public class MainActivity extends AppCompatActivity {
 
                 Log.d(TAG,"Object created: \n  " + picture.category + " --- " + picture.label + " --- " +  picture.filename);
 
+                // determine which list to add the pictureHolder object to by category
                 switch (picture.category)
                 {
                     case "activities":
@@ -212,7 +251,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
 
-            // Verify by debugging
+            // THE REST IS FOR DEBUGGING PURPOSES
             Log.d(TAG,"*****Verifying contents of each list*****");
             // ASSUMING LISTS ARE ARRAY LISTS!!!
             for (int i = 0; i < activitiesList.size(); i++) {
@@ -238,22 +277,12 @@ public class MainActivity extends AppCompatActivity {
         }
         ;
     }
+
     /**
-     * Opening the category menu when one of the request button images has been pressed
+     * <h2>slotOneButton</h2>
+     * Moves to the next activity, CategoryMenu, and passes along Slot 1 ID info
+     * @param view Takes in the current viewport
      */
-
-    public void sampleButton(View view) {
-         /*
-            Link to next activity via Intent
-            Context as first parameter (this) (is an Activity, subclass of Context)
-            Second Parameter: Class of the component to which the Intent should be delivered
-         */
-        Intent intent = new Intent(this, CategoryMenu.class);
-        String slotID = "Slot_0";
-        intent.putExtra(EXTRA_SLOT_CHOICE, slotID);
-        startActivity(intent);
-    }
-
     public void slotOneButton(View view) {
          /*
             Link to next activity via Intent
@@ -266,6 +295,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /**
+     * <h2>slotTwoButton</h2>
+     * Moves to the next activity, CategoryMenu, and passes along Slot 2 ID info
+     * @param view Takes in the current viewport
+     */
     public void slotTwoButton(View view) {
          /*
             Link to next activity via Intent
@@ -278,6 +312,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /**
+     * <h2>slotThreeButton</h2>
+     * Moves to the next activity, CategoryMenu, and passes along Slot 3 ID info
+     * @param view Takes in the current viewport
+     */
     public void slotThreeButton(View view) {
          /*
             Link to next activity via Intent
@@ -290,21 +329,16 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void reset1(View view) {
-        ImageButton imgButton = (ImageButton) findViewById(R.id.imageButton1);
-        imgButton.setImageResource(android.R.drawable.ic_input_add);
-        SharedPreferences sharedpreferences = getSharedPreferences("your_prefs", Context.MODE_PRIVATE);
+    // TODO: Verify we don't need this - this logic might be what we use in the imgButtonHandler funtions to remove sharedPref data
+//    public void reset1(View view) {
+//        ImageButton imgButton = (ImageButton) findViewById(R.id.imageButton1);
+//        imgButton.setImageResource(android.R.drawable.ic_input_add);
+//        SharedPreferences sharedpreferences = getSharedPreferences("your_prefs", Context.MODE_PRIVATE);
+//
+//        sharedpreferences.edit().clear().apply();
+//    }
 
-        sharedpreferences.edit().clear().apply();
-    }
 
 
-    //  TODO: Anthony - We need to create three functions: One for each slot
-    // checking to see if slots have a request made or not. Used for changing images
-    public boolean Slot1Empty() { return ListSubMenu.isSlot1Empty; }
-    public boolean Slot2Empty() { return ListSubMenu.isSlot2Empty; }
-    public boolean Slot3Empty() { return ListSubMenu.isSlot3Empty; }
-
-    // TODO: Matthias - when program completely ends, change images in shared preferences back to plus-signs
 }
 
