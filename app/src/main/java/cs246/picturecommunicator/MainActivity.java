@@ -91,10 +91,11 @@ public class MainActivity extends AppCompatActivity {
         loadImageLists();
 
         // activate shared preferences retrieval
-        SharedPreferences sharedpreferences = getSharedPreferences("your_prefs", Activity.MODE_PRIVATE);
+        final SharedPreferences sharedpreferences = getSharedPreferences("your_prefs", Activity.MODE_PRIVATE);
 
         // change the background of the buttons to the images stored in shared preferences, if they are there.
         // if there are no shared preferences, set the background to a plus sign.
+
         // slot 1 check
         if (!sharedpreferences.contains(SLOT1_RESID)) {
             imgButton1 = findViewById(R.id.imageButton1);
@@ -102,7 +103,6 @@ public class MainActivity extends AppCompatActivity {
         } else {
             imgButton1 = findViewById(R.id.imageButton1);
             int temp = sharedpreferences.getInt(SLOT1_RESID,-1);
-
             if (temp != -1)
                 imgButton1.setBackgroundResource(getResources().getIdentifier(Integer.toString(temp), "drawable", getPackageName()));
         }
@@ -124,59 +124,39 @@ public class MainActivity extends AppCompatActivity {
             imgButton3.setBackgroundResource(android.R.drawable.ic_input_add);
         } else {
             imgButton3 = findViewById(R.id.imageButton3);
-
             int temp = sharedpreferences.getInt(SLOT3_RESID,-1);
             if (temp != -1)
                 imgButton3.setBackgroundResource(getResources().getIdentifier(Integer.toString(temp), "drawable", getPackageName()));
         }
 
-        // set the onClickListeners for each of the reset buttons
+        // Clear buttons to clear the image and shared preferences
         resetButton1 = findViewById(R.id.removeButton1);
-        resetButton1.setOnClickListener(imgButtonHandler1);
+        resetButton1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                imgButton1.setBackgroundResource(android.R.drawable.ic_input_add);
+                sharedpreferences.edit().clear().apply();
+            }
+        });
         resetButton2 = findViewById(R.id.removeButton2);
-        resetButton2.setOnClickListener(imgButtonHandler2);
+        resetButton2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                imgButton2.setBackgroundResource(android.R.drawable.ic_input_add);
+                sharedpreferences.edit().clear().apply();
+            }
+        });
         resetButton3 = findViewById(R.id.removeButton3);
-        resetButton3.setOnClickListener(imgButtonHandler3);
+        resetButton3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                imgButton3.setBackgroundResource(android.R.drawable.ic_input_add);
+                sharedpreferences.edit().clear().apply();
+            }
+        });
+
+
     }
-
-    // TODO: I think these clears need to delete what is in the shared preferences as well
-    /**
-     * <h2>imgButtonHandler1</h2>
-     * An OnClickListener for the first delete button that resets the background
-     * to a plus sign.
-     */
-    View.OnClickListener imgButtonHandler1 = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            imgButton1.setBackgroundResource(android.R.drawable.ic_input_add);
-            getSharedPreferences(SLOT1_RESID, -1).edit().clear();
-            getSharedPreferences(SLOT1_RESID, -1).edit().apply();
-        }
-    };
-
-    /**
-     * <h2>imgButtonHandler2</h2>
-     * An OnClickListener for the second delete button that resets the background
-     * to a plus sign.
-     */
-    View.OnClickListener imgButtonHandler2 = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            imgButton2.setBackgroundResource(android.R.drawable.ic_input_add);
-        }
-    };
-
-    /**
-     * <h2>imgButtonHandler3</h2>
-     * An OnClickListener for the third delete button that resets the background
-     * to a plus sign.
-     */
-    View.OnClickListener imgButtonHandler3 = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            imgButton3.setBackgroundResource(android.R.drawable.ic_input_add);
-        }
-    };
 
     /**
      * <h2>loadImageLists</h2>
