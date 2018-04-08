@@ -82,6 +82,8 @@ public class MainActivity extends AppCompatActivity {
     public static List painList = new ArrayList<PictureHolder>();
     public static List familyList = new ArrayList<PictureHolder>();
 
+    SharedPreferences sharedpreferences;
+
     /**
      * <h2>OnCreate</h2>
      * This first function will create the lists of images, and set up the buttons based on the images
@@ -97,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
         loadImageLists();
 
         // activate shared preferences retrieval
-        final SharedPreferences sharedpreferences = getSharedPreferences("your_prefs", Activity.MODE_PRIVATE);
+        sharedpreferences = getSharedPreferences("your_prefs", Activity.MODE_PRIVATE);
 
         // change the background of the buttons to the images stored in shared preferences, if they are there.
         // if there are no shared preferences, set the background to a plus sign.
@@ -135,13 +137,14 @@ public class MainActivity extends AppCompatActivity {
                 imgButton3.setBackgroundResource(getResources().getIdentifier(Integer.toString(temp), "drawable", getPackageName()));
         }
 
-        // Clear buttons to clear the image and shared preferences
+        // Clear buttons to clear the image and shared preferences for individual slot
         resetButton1 = findViewById(R.id.removeButton1);
         resetButton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 imgButton1.setBackgroundResource(android.R.drawable.ic_input_add);
-//                sharedpreferences.edit().clear().apply();
+                sharedpreferences.edit().remove(SLOT1_RESID).apply();
+
             }
         });
         resetButton2 = findViewById(R.id.removeButton2);
@@ -149,7 +152,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imgButton2.setBackgroundResource(android.R.drawable.ic_input_add);
-//                sharedpreferences.edit().clear().apply();
+                sharedpreferences.edit().remove(SLOT2_RESID).apply();
             }
         });
         resetButton3 = findViewById(R.id.removeButton3);
@@ -157,18 +160,23 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imgButton3.setBackgroundResource(android.R.drawable.ic_input_add);
-//                sharedpreferences.edit().clear().apply();
+                sharedpreferences.edit().remove(SLOT3_RESID).apply();
             }
         });
 
 
     }
 
+    /**
+     * Clears the shared preferences
+     */
     @Override
     protected void onDestroy() {
-        super.onDestroy();
-        final SharedPreferences sharedpreferences = getSharedPreferences("your_prefs", Activity.MODE_PRIVATE);
+        sharedpreferences.edit().remove(SLOT1_RESID).apply();
+        sharedpreferences.edit().remove(SLOT2_RESID).apply();
+        sharedpreferences.edit().remove(SLOT3_RESID).apply();
         sharedpreferences.edit().clear().apply();
+        super.onDestroy();
     }
 
     /**
