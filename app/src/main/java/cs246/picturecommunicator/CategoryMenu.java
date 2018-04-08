@@ -25,6 +25,7 @@ public class CategoryMenu extends AppCompatActivity {
     public static final String EXTRA_CATEGORY_CHOICE = "cs246.picturecommunicator.CATEGORY_CHOICE";
 
     private String slotID;
+    private String language;
 
     /**
      * <h2>onCreate</h2>
@@ -43,6 +44,7 @@ public class CategoryMenu extends AppCompatActivity {
 
         // Extract the String
         slotID = intent.getStringExtra(MainActivity.EXTRA_SLOT_CHOICE);
+        language = intent.getStringExtra(MainActivity.EXTRA_LANGUAGE_CHOICE);
         Log.d(TAG,"Selecting Category for " + slotID);
 
     }
@@ -59,6 +61,7 @@ public class CategoryMenu extends AppCompatActivity {
 //        t.show();
 
         intent.putExtra(MainActivity.EXTRA_SLOT_CHOICE, slotID);
+        intent.putExtra(MainActivity.EXTRA_LANGUAGE_CHOICE,language);
         String category = "Activities";
         intent.putExtra(EXTRA_CATEGORY_CHOICE, category);
         Log.d(TAG, category + " for " + slotID + "selected.");
@@ -78,6 +81,7 @@ public class CategoryMenu extends AppCompatActivity {
 //        t.show();
 
         intent.putExtra(MainActivity.EXTRA_SLOT_CHOICE, slotID);
+        intent.putExtra(MainActivity.EXTRA_LANGUAGE_CHOICE,language);
         String category = "Food";
         intent.putExtra(EXTRA_CATEGORY_CHOICE, category);
         Log.d(TAG, category + " for " + slotID + "selected.");
@@ -97,6 +101,7 @@ public class CategoryMenu extends AppCompatActivity {
 //        t.show();
 
         intent.putExtra(MainActivity.EXTRA_SLOT_CHOICE, slotID);
+        intent.putExtra(MainActivity.EXTRA_LANGUAGE_CHOICE,language);
         String category = "Pain";
         intent.putExtra(EXTRA_CATEGORY_CHOICE, category);
         Log.d(TAG, category + " for " + slotID + "selected.");
@@ -116,6 +121,7 @@ public class CategoryMenu extends AppCompatActivity {
 //        t.show();
 
         intent.putExtra(MainActivity.EXTRA_SLOT_CHOICE, slotID);
+        intent.putExtra(MainActivity.EXTRA_LANGUAGE_CHOICE,language);
         String category = "Family";
         intent.putExtra(EXTRA_CATEGORY_CHOICE, category);
         Log.d(TAG, category + " for " + slotID + "selected.");

@@ -36,9 +36,13 @@ public class ListSubMenu extends AppCompatActivity {
 
     // Temporary list of Pictures to be displayed in the list view.
     List currentList = new ArrayList<PictureHolder>();
+
+    // Translator object to choose between English or Spanish
+    Translator translator;
     String title;
     String category;
     String slot;
+    String language;
 
 
     /**
@@ -66,6 +70,8 @@ public class ListSubMenu extends AppCompatActivity {
         // Get the category chosen from the previous intent
         category = intent.getStringExtra(CategoryMenu.EXTRA_CATEGORY_CHOICE);
 
+        language = intent.getStringExtra(MainActivity.EXTRA_LANGUAGE_CHOICE);
+
         //Get the category list depending on the EXTRA_CATEGORY_CHOICE.
         switch (category) {
             case "Food":
@@ -90,7 +96,14 @@ public class ListSubMenu extends AppCompatActivity {
             HashMap<String, String> hm = new HashMap<String, String>();
             PictureHolder temp = (PictureHolder)currentList.get(i);
 
-            hm.put("listview_title",temp.getLabel());
+            // TODO Set up translator interface with a Translator class
+
+            if (Objects.equals(language, "English"))
+                translator = new EnglishTranslator();
+            if (Objects.equals(language, "Espanol"))
+                translator = new SpanishTranslator();
+
+            hm.put("listview_title",translator.translate(temp));
             hm.put("listview_image",Integer.toString(temp.getFilename()));
 
 
@@ -133,7 +146,8 @@ public class ListSubMenu extends AppCompatActivity {
                 for (int i = 0; i < currentList.size(); i++) {
                     PictureHolder temp = (PictureHolder)currentList.get(i);
                     String tempTitle;
-                    tempTitle = temp.getLabel();
+
+                    tempTitle = translator.translate(temp);
 
 
                     if (Objects.equals(tempTitle, title)) {
@@ -147,7 +161,7 @@ public class ListSubMenu extends AppCompatActivity {
 
                                 editor = sharedPreferences.edit();
                                 editor.putInt(MainActivity.SLOT1_RESID,temp.getFilename());
-                                Log.d(TAG,"Slot 1: " + (temp.getLabel()));
+                                Log.d(TAG,"Slot 1: " + (translator.translate(temp)));
 
                                 editor.apply();
 
@@ -187,10 +201,5 @@ public class ListSubMenu extends AppCompatActivity {
 
 
     }
-    // TODO: This creates an options menu that is never used, do we still need it?
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_list_sub_menu, menu);
-        return true;
-    }
+
 }

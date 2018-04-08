@@ -1,70 +1,70 @@
-birthday,Birthday,activities
-car,Car,activities
-cemetary,Cemetary,activities
-church,Church,activities
-dogwalk,Dog Walk,activities
-feedcat,Feed Cat,activities
-feeddog,Feed Dog,activities
-house,House,activities
-missionary,Missionary,activities
-money,Money,activities
-phonecall,Phone Call,activities
-remote,Remote,activities
-sleep,Sleep,activities
-wheelchair,Wheel Chair,activities
-alex,Alex,family
-alexander,Alexander,family
-andres,Andres,family
-badillo,Badillo,family
-beba,Beba,family
-bebo,Bebo,family
-ivri,Ivri,family
-viari,Viari,family
-viri,Viri,family
-alexandra,Alexandra,family
-ants,Ants,family
-brandon,Brandon,family
-campbell,Campbell,family
-derek,Derek,family
-ella,Ella,family
-grecia,Grecia,family
-nathan,Nathan,family
-paulc,Paul,family
-teresa,Teresa,family
-terry,Terry,family
-adelina,Adelina,family
-elizabeth,Elizabeth,family
-emilia,Emilia,family
-isabella,Isabella,family
-alejandro,Alejandro,family
-vazquez,Vazquez,family
-victoria,Victoria,family
-chicken,Chicken,food
-chile_relleno,Chile Relleno,food
-coke,Coke,food
-eggs,Eggs,food
-filletofish,Fillet OFish,food
-fish,Fish,food
-mixednuts,Mixed Nuts,food
-nopales,Nopales,food
-oatmeal,Oatmeal,food
-pepecuate,Pepecuate,food
-rice,Rice,food
-tortilla,Tortilla,food
-water,Water,food
-whitechocolate,White Chocolate,food
-yogurt,Yogurt,food
-backpain,Back Pain,pain
-bloodsugar,Blood Sugar,pain
-chestpain,Chest Pain,pain
-dizzy,Dizzy,pain
-doctor,Doctor,pain
-glasses,Glasses,pain
-headpain,Head Pain,pain
-leg,Leg,pain
-massage,Massage,pain
-medicine,Medicine,pain
-neckpain,Neck Pain,pain
-prunes,Prunes,pain
-stomach,Stomach,pain
-teeth,Teeth,pain
+birthday,Birthday,Cumpleaños,activities
+car,Car,Carro,activities
+cemetary,Cemetary,Cementerio,activities
+church,Church,Iglesia,activities
+dogwalk,Dog Walk,Pasear al perro,activities
+feedcat,Feed Cat,Alimenta al gato,activities
+feeddog,Feed Dog,Alimenta al perro,activities
+house,House,Casa,activities
+missionary,Missionary,Misionario,activities
+money,Money,Dinero,activities
+phonecall,Phone Call,llamada telefónica,activities
+remote,Remote,Remoto,activities
+sleep,Sleep,Dormir,activities
+wheelchair,Wheel Chair,Silla de ruedas,activities
+alex,Alex,Alex,family
+alexander,Alexander,Alexander,family
+andres,Andres,Andres,family
+badillo,Badillo,Badillo,family
+beba,Beba,Beba,family
+bebo,Bebo,Bebo,family
+ivri,Ivri,Ivri,family
+viari,Viari,Viari,family
+viri,Viri,Viri,family
+alexandra,Alexandra,Alexandra,family
+ants,Ants,Ants,family
+brandon,Brandon,Brandon,family
+campbell,Campbell,Campbell,family
+derek,Derek,Derek,family
+ella,Ella,Ella,family
+grecia,Grecia,Grecia,family
+nathan,Nathan,Nathan,family
+paulc,Paul,Paul,family
+teresa,Teresa,Teresa,family
+terry,Terry,Terry,family
+adelina,Adelina,Adelina,family
+elizabeth,Elizabeth,Elizabeth,family
+emilia,Emilia,Emilia,family
+isabella,Isabella,Isabella,family
+alejandro,Alejandro,Alejandro,family
+vazquez,Vazquez,Vazquez,family
+victoria,Victoria,Victoria,family
+chicken,Chicken,Pollo,food
+chile_relleno,Chile Relleno,Chile Relleno,food
+coke,Coke,Coke,food
+eggs,Eggs,Huebos,food
+filletofish,Fillet OFish,Filete OPescado,food
+fish,Fish,Pescado,food
+mixednuts,Mixed Nuts,Nueces mixtas,food
+nopales,Nopales,Nopales,food
+oatmeal,Oatmeal,Avena,food
+pepecuate,Pepecuate,Pepecuate,food
+rice,Rice,Arroz,food
+tortilla,Tortilla,Tortilla,food
+water,Water,Agua,food
+whitechocolate,White Chocolate,Chocolate Blanco,food
+yogurt,Yogurt,Yogur,food
+backpain,Back Pain,Dolor de Elspada,pain
+bloodsugar,Blood Sugar,Glicemia,pain
+chestpain,Chest Pain,Dolor de Pecho,pain
+dizzy,Dizzy,Mareado,pain
+doctor,Doctor,Doctor,pain
+glasses,Glasses,Anteojos,pain
+headpain,Head Pain,Dolor de Cabeza,pain
+leg,Leg,Pierna,pain
+massage,Massage,Masaje,pain
+medicine,Medicine,Medicina,pain
+neckpain,Neck Pain,Dolor de Cuello,pain
+prunes,Prunes,Prunes,pain
+stomach,Stomach,Estómago,pain
+teeth,Teeth,Los Dientes,pain

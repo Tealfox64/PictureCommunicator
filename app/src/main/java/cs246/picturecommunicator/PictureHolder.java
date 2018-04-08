@@ -5,14 +5,16 @@ package cs246.picturecommunicator;
  * A class to store individual data for each image file. Includes:
  * <ul>
  *     <li>int filename: holds the data for the R resource of the image file.</li>
- *     <li>String label: the name of the image, can be displayed with it.</li>
+ *     <li>String label - English: the name of the image, in English, can be displayed with the picture.</li>
+ *     <li>String label - Spanish: the name of the image, in Spanish, can be displayed with the picture.</li>
  *     <li>String category: the category the image falls under.</li>
  * </ul>
  */
 public class PictureHolder {
 
     protected int filename;
-    protected String label;
+    protected String labelEnglish;
+    protected String labelSpanish;
     protected String category;
 
     /**
@@ -20,18 +22,21 @@ public class PictureHolder {
      */
     public PictureHolder() {
         this.filename = 0;
-        this.label = "";
+        this.labelEnglish = "";
+        this.labelSpanish = "";
     }
 
     /**
      * <h2>Picture (non-default constructor) accepts 3 parameters</h2>
      * @param filename holds the data for the R resource of the image file
-     * @param label is the name of the image, can be displayed with it
+     * @param labelEnglish is the English name of the image, can be displayed with the picture
+     * @param labelSpanish is the Spanish name of the image, can be display with the picture
      * @param category is the category the image falls under
      */
-    public PictureHolder(int filename, String label, String category) {
+    public PictureHolder(int filename, String labelEnglish, String labelSpanish, String category) {
         this.filename = filename;
-        this.label = label;
+        this.labelEnglish = labelEnglish;
+        this.labelSpanish = labelSpanish;
         this.category = category;
     }
 
@@ -52,19 +57,35 @@ public class PictureHolder {
     }
 
     /**
-     * <h2>getLabel</h2>
-     * @return the actual name of the object in the image
+     * <h2>getLabelEnglish</h2>
+     * @return the actual name in English of the object in the image
      */
-    public String getLabel() {
-        return label;
+    public String getLabelEnglish() {
+        return labelEnglish;
     }
 
     /**
-     * <h2>setLabel</h2>
-     * @param label the actual name of the object in the image
+     * <h2>getLabelSpanish</h2>
+     * @return the actual name in Spanish of the object in the image in
      */
-    public void setLabel(String label) {
-        this.label = label;
+    public String getLabelSpanish() {
+        return labelSpanish;
+    }
+
+    /**
+     * <h2>setLabelEnglish</h2>
+     * @param labelEnglish the actual name in English of the object in the image
+     */
+    public void setLabelEnglish(String labelEnglish) {
+        this.labelEnglish = labelEnglish;
+    }
+
+    /**
+     * <h2>setLabelSpanish</h2>
+     * @param labelSpanish the actual name in Spanish of the object in the image
+     */
+    public void setLabelSpanish(String labelSpanish) {
+        this.labelSpanish = labelSpanish;
     }
 
     /**

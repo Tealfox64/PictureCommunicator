@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ToggleButton;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -61,11 +62,16 @@ public class MainActivity extends AppCompatActivity {
     ImageButton resetButton2;
     ImageButton resetButton3;
 
+    private ToggleButton toggleButton;
+
     // string for the tag indicating the activity name for Log
     private static final String TAG = "MainActivity";
 
     // string for Extra key for intent, public so it can be accessed
     public static final String EXTRA_SLOT_CHOICE = "cs246.picturecommunicator.SLOT_CHOICE";
+
+    // String for current language to be passed to the translator
+    public static final String EXTRA_LANGUAGE_CHOICE = "cs246.picturecommunicator.LANGUAGE_CHOICE";
 
     // location of the picture data file
     public static String FILENAME = "listimages.txt";
@@ -174,7 +180,8 @@ public class MainActivity extends AppCompatActivity {
             String line;
             PictureHolder picture;
             String filepath;
-            String label;
+            String labelEnglish;
+            String labelSpanish;
             String category;
 
             Log.d(TAG,"Looping through " + FILENAME);
@@ -190,10 +197,17 @@ public class MainActivity extends AppCompatActivity {
                 }
                 i++;
 
-                label = "";
+                labelEnglish = "";
                 for (; line.charAt(i) != ',' && i < line.length(); i++)
                 {
-                    label += line.charAt(i);
+                    labelEnglish += line.charAt(i);
+                }
+                i++;
+
+                labelSpanish = "";
+                for (; line.charAt(i) != ',' && i < line.length(); i++)
+                {
+                    labelSpanish += line.charAt(i);
                 }
                 i++;
 
@@ -206,10 +220,11 @@ public class MainActivity extends AppCompatActivity {
                 // put the parsed variables into a pictureHolder object
                 picture = new PictureHolder();
                 picture.filename = getResources().getIdentifier(filepath,"drawable", getPackageName());
-                picture.label = label;
+                picture.labelEnglish = labelEnglish;
+                picture.labelSpanish = labelSpanish;
                 picture.category = category;
 
-                Log.d(TAG,"Object created: \n  " + picture.category + " --- " + picture.label + " --- " +  picture.filename);
+                Log.d(TAG,"Object created: \n  " + picture.category + " --- " + picture.labelEnglish + " --- " +  picture.filename);
 
                 // determine which list to add the pictureHolder object to by category
                 switch (picture.category)
@@ -236,19 +251,19 @@ public class MainActivity extends AppCompatActivity {
             Log.d(TAG,"*****Verifying contents of each list*****");
             // ASSUMING LISTS ARE ARRAY LISTS!!!
             for (int i = 0; i < activitiesList.size(); i++) {
-                Log.d(TAG,"activitiesList[" + i + "] --- " + ((PictureHolder)activitiesList.get(i)).getLabel() + ": " +  ((PictureHolder)activitiesList.get(i)).getFilename());
+                Log.d(TAG,"activitiesList[" + i + "] --- " + ((PictureHolder)activitiesList.get(i)).getLabelEnglish() + ": " +  ((PictureHolder)activitiesList.get(i)).getFilename());
             }
 
             for (int i = 0; i < foodList.size(); i++) {
-                Log.d(TAG,"foodList[" + i + "] --- " + ((PictureHolder)foodList.get(i)).getLabel() + ": " +  ((PictureHolder)foodList.get(i)).getFilename());
+                Log.d(TAG,"foodList[" + i + "] --- " + ((PictureHolder)foodList.get(i)).getLabelEnglish() + ": " +  ((PictureHolder)foodList.get(i)).getFilename());
             }
 
             for (int i = 0; i < painList.size(); i++) {
-                Log.d(TAG,"painList[" + i + "] --- " + ((PictureHolder)painList.get(i)).getLabel() + ": " +  ((PictureHolder)painList.get(i)).getFilename());
+                Log.d(TAG,"painList[" + i + "] --- " + ((PictureHolder)painList.get(i)).getLabelEnglish() + ": " +  ((PictureHolder)painList.get(i)).getFilename());
             }
 
             for (int i = 0; i < familyList.size(); i++) {
-                Log.d(TAG,"familyList[" + i + "] --- " + ((PictureHolder)familyList.get(i)).getLabel() + ": " +  ((PictureHolder)familyList.get(i)).getFilename());
+                Log.d(TAG,"familyList[" + i + "] --- " + ((PictureHolder)familyList.get(i)).getLabelEnglish() + ": " +  ((PictureHolder)familyList.get(i)).getFilename());
             }
 
         } catch (FileNotFoundException e) {
@@ -270,9 +285,15 @@ public class MainActivity extends AppCompatActivity {
             Context as first parameter (this) (is an Activity, subclass of Context)
             Second Parameter: Class of the component to which the Intent should be delivered
          */
+        toggleButton = findViewById(R.id.language);
+        String language = "";
+        language = String.valueOf(toggleButton.getText());
+        Log.d(TAG,"Language Chosen: " + language);
+
         Intent intent = new Intent(this, CategoryMenu.class);
         String slotID = "Slot_1";
         intent.putExtra(EXTRA_SLOT_CHOICE, slotID);
+        intent.putExtra(EXTRA_LANGUAGE_CHOICE,language);
         startActivity(intent);
     }
 
@@ -287,9 +308,15 @@ public class MainActivity extends AppCompatActivity {
             Context as first parameter (this) (is an Activity, subclass of Context)
             Second Parameter: Class of the component to which the Intent should be delivered
          */
-        Intent intent = new Intent(this, CategoryMenu.class);
+        toggleButton = findViewById(R.id.language);
+        String language = "";
+        language = String.valueOf(toggleButton.getText());
+        Log.d(TAG,"Language Chosen: " + language);
+
+         Intent intent = new Intent(this, CategoryMenu.class);
         String slotID = "Slot_2";
         intent.putExtra(EXTRA_SLOT_CHOICE, slotID);
+        intent.putExtra(EXTRA_LANGUAGE_CHOICE,language);
         startActivity(intent);
     }
 
@@ -304,9 +331,15 @@ public class MainActivity extends AppCompatActivity {
             Context as first parameter (this) (is an Activity, subclass of Context)
             Second Parameter: Class of the component to which the Intent should be delivered
          */
-        Intent intent = new Intent(this, CategoryMenu.class);
+        toggleButton = findViewById(R.id.language);
+        String language = "";
+        language = String.valueOf(toggleButton.getText());
+        Log.d(TAG,"Language Chosen: " + language);
+
+         Intent intent = new Intent(this, CategoryMenu.class);
         String slotID = "Slot_3";
         intent.putExtra(EXTRA_SLOT_CHOICE, slotID);
+        intent.putExtra(EXTRA_LANGUAGE_CHOICE,language);
         startActivity(intent);
     }
 
