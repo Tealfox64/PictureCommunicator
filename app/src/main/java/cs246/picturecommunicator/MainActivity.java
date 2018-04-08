@@ -141,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imgButton1.setBackgroundResource(android.R.drawable.ic_input_add);
-                sharedpreferences.edit().clear().apply();
+//                sharedpreferences.edit().clear().apply();
             }
         });
         resetButton2 = findViewById(R.id.removeButton2);
@@ -149,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imgButton2.setBackgroundResource(android.R.drawable.ic_input_add);
-                sharedpreferences.edit().clear().apply();
+//                sharedpreferences.edit().clear().apply();
             }
         });
         resetButton3 = findViewById(R.id.removeButton3);
@@ -157,11 +157,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imgButton3.setBackgroundResource(android.R.drawable.ic_input_add);
-                sharedpreferences.edit().clear().apply();
+//                sharedpreferences.edit().clear().apply();
             }
         });
 
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        final SharedPreferences sharedpreferences = getSharedPreferences("your_prefs", Activity.MODE_PRIVATE);
+        sharedpreferences.edit().clear().apply();
     }
 
     /**
