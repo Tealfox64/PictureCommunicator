@@ -58,7 +58,7 @@ public class ListSubMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_sub_menu);
 
-        List<HashMap<String, String>> categoryListItems = new ArrayList<HashMap<String, String>>();
+        List<HashMap<String, String>> categoryListItems = new ArrayList<>();
 
         // Receive the intent from the Category Menu
         Intent intent = getIntent();
@@ -93,7 +93,7 @@ public class ListSubMenu extends AppCompatActivity {
         // Putting the title, description, and image in the HashMap/Array List
         // The quantity needs to be the number of items in the category list chosen and not 8.
         for (int i = 0; i < currentList.size(); i++) {
-            HashMap<String, String> hm = new HashMap<String, String>();
+            HashMap<String, String> hm = new HashMap<>();
             PictureHolder temp = (PictureHolder)currentList.get(i);
 
             // TODO Set up translator interface with a Translator class
@@ -125,6 +125,7 @@ public class ListSubMenu extends AppCompatActivity {
 
         // HOW TO STORE INT IN A SHARED PREFERENCES SLOT
         // Item Click Listener for the listview
+
         OnItemClickListener itemClickListener = new OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View container, int position, long id) {

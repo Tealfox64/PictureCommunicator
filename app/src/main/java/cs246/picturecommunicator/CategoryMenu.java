@@ -14,6 +14,7 @@ import android.view.View;
  *     <li>private static final String TAG: string for the tag indicating the activity name for Log</li>
  *     <li>public static final String EXTRA_CATEGORY_CHOICE: string for Extra key for intent, public so it can be accessed</li>
  *     <li>private String slotID: string to pass to next activity to identify which slot will be changed</li>
+ *     <li>private String language: temporary string to hold the language chosen in the previous activity</li>
  * </ul>
  */
 public class CategoryMenu extends AppCompatActivity {
@@ -24,7 +25,10 @@ public class CategoryMenu extends AppCompatActivity {
     // string for Extra key for intent, public so it can be accessed
     public static final String EXTRA_CATEGORY_CHOICE = "cs246.picturecommunicator.CATEGORY_CHOICE";
 
+    // Temporary String to hold the slot number
     private String slotID;
+
+    // Temporary String to hold the language chosen
     private String language;
 
     /**
@@ -72,7 +76,7 @@ public class CategoryMenu extends AppCompatActivity {
     /**
      * <h2>Food Button</h2>
      * Selects the Food category, and passes that info and the slot choice to the next activity.
-     * @param view
+     * @param view takes in the current view
      */
     public void foodButton(View view) {
         Intent intent = new Intent(this, ListSubMenu.class);
@@ -92,7 +96,7 @@ public class CategoryMenu extends AppCompatActivity {
     /**
      * <h2>Pain Button</h2>
      * Selects the Pain category, and passes that info and the slot choice to the next activity.
-     * @param view
+     * @param view takes in the current view
      */
     public void painButton(View view) {
         Intent intent = new Intent(this, ListSubMenu.class);
@@ -112,7 +116,7 @@ public class CategoryMenu extends AppCompatActivity {
     /**
      * <h2>Family Button</h2>
      * Selects the Family category, and passes that info and the slot choice to the next activity.
-     * @param view
+     * @param view takes in the current view
      */
     public void familyButton(View view) {
         Intent intent = new Intent(this, ListSubMenu.class);
